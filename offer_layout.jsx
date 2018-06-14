@@ -3,7 +3,7 @@ var layoutAry = [offer_layout];
 var enddigit = "";
 try{
 var pt = 'EV';
-if(offer_layout == "Multi"){
+if(offer_layout == "Multi" || offer_layout == "Multi-Save"){
     pt = "Multi";
 }
 else if(myRecord['unit'] == 'kg') {
