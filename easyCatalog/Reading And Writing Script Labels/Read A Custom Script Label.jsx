@@ -1,0 +1,1 @@
+﻿//Set the selection to a variablevar mySelection = app.selection[0];//Read our custom script labelvar myCustomLabelContents = mySelection.extractLabel("DemoLabel");alert(myCustomLabelContents);

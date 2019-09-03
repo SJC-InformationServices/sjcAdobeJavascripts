@@ -1,11 +1,12 @@
 var imageDir = Folder.selectDialog("Select Source Directory");
 var destinationDir = Folder.selectDialog("Select Destination");
-
+var log = new File(imageDir.fullName + "/log.txt");
+log.open("w")
 var files = imageDir.getFiles(/\.jpg/i);
 var count = 0;
 if(files !== null)
 {
-    for(var i = 0;i<100;i++)
+    for(var i = 0;i<file.length;i++)
     {
         var file = files[i];
         app.open(file);
@@ -27,6 +28,7 @@ if(files !== null)
                 }
                 if(!doc.selection){
                     doc.close(SaveOptions.DONOTSAVECHANGES);
+                    log.writeLn(doc.name);
                     continue;
                }
                
@@ -79,3 +81,4 @@ if(files !== null)
     }
     
 }
+log.close();
