@@ -1,7 +1,5 @@
 var ec = app.easycatalogObject;
 var doc = app.activeDocument;
-var ds = ec.datasources.item("2020 MC_updated copy_DATA_PrimeLine.xlsx");
-var dvs = ds.dataviews;
 
 var selectionKeys = [];
 
@@ -9,7 +7,7 @@ var selection = app.selection;
 if (selection.length > 0) {
    for (var i = 0; i<selection.length;i++)
    {
-    try{
+    try {
     var ec_select = ec.getLinks(selection[i]);
     var sel_ds = ec_select[0];
     var sel_key = ec_select[1];
@@ -18,16 +16,26 @@ if (selection.length > 0) {
 
     }
     if (sel_key){
-        selectionKeys.push(sel_key);
+        if (typeof selectionKeys[sel_ds] == "undefined")
+        {
+            selectionKeys[sel_ds] = [];
+        }
+        selectionKeys[sel_ds].push(sel_key);
     }
    } 
-       
-    for (var i = 0; i < dvs.length; i++) {
-        var dv = dvs[i];
-        var recs = dv.records;
-        dv.showRecords(selectionKeys);
-        //dv.makeSelection(1,selectionKeys.length);
-        //dv.showAll();
-    }
-
+    
+   for(sel_ds in selectionKeys){
+       alert(sel_ds);
+        var ds =  ec.datasources.item(sel_ds);
+        var keys = selectionKeys[sel_ds];
+        var dvs = ds.dataviews;
+        for (var i = 0; i < dvs.length; i++) {
+            var dv = dvs[i];
+            dv.showRecords(keys);
+            //dv.makeSelection(1,selectionKeys.length);
+            //dv.showAll();
+        }
+    
+   }
+    
 }

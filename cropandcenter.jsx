@@ -2,8 +2,8 @@ app.preferences.rulerUnits = Units.PIXELS;
 var doc = app.activeDocument;
 try{
 doc.artLayers[0].isBackgroundLayer = false;
-var sized = "1800px"
-var canvassize = "2000px"
+var sized = "2325px"
+var canvassize = "2400px"
 var clippaths = doc.pathItems;
 var p;
 for(var y=0;y<clippaths.length;y++)
@@ -18,7 +18,7 @@ for(var y=0;y<clippaths.length;y++)
 if(!doc.selection){
     alert("No Valid Path Found");
 }else{
-alert(doc.selection.bounds);
+
 doc.crop(doc.selection.bounds);
 var w = doc.width
 var h = doc.height
