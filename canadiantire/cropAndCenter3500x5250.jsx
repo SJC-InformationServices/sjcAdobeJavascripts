@@ -86,7 +86,7 @@ var minW=fw-(padding*2);
     }
 } 
 }
-function kids(){
+function Kids(){
     
 var fw = 3500;
 var fh = 5250;
@@ -172,3 +172,6 @@ var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250KidJPG
     }
 } 
 }
+
+Adults();
+Kids();
