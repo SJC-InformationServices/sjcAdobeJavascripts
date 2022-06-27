@@ -1,0 +1,7 @@
+sample
+*.cer
+*.pfx
+legacy
+certs
+easyCatalog
+samples
