@@ -2,9 +2,11 @@
 app.displayDialogs = DialogModes.NO;
 
 
-    var fw = 3500;
-    var fh = 5250;
-    var padding = 450;
+var fw = 3500;
+var fh = 5250;
+var padding = 450;
+var minH=fh-(padding*2);
+var minW=fw-(padding*2);
 
     var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\JEN\\IN");
     var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\JEN\\OUT");
@@ -43,13 +45,14 @@ app.displayDialogs = DialogModes.NO;
         }
     }
     w = app.activeDocument.width;
-    h = app.activeDocument.width;
+    h = app.activeDocument.height;
     var crop = app.activeDocument.selection.bounds.join(",").split(",");
+    var ratio = minH/(parseFloat(crop[3].replace("px",""))-parseFloat(crop[1].replace("px","")));
 
-    var cx=parseFloat(crop[0].replace("px",""))-padding, 
-    cy=parseFloat(crop[1].replace("px",""))-padding,
-    cw=parseFloat(crop[2].replace("px",""))+padding, 
-    ch=parseFloat(crop[3].replace("px",""))+padding; 
+    var cx=(parseFloat(crop[0].replace("px",""))-padding)*ratio, 
+    cy=(parseFloat(crop[1].replace("px",""))-padding)*ratio,
+    cw=(parseFloat(crop[2].replace("px",""))+padding)*ratio, 
+    ch=(parseFloat(crop[3].replace("px",""))+padding)*ratio; 
     
     var newCX = cx-((fw-(cw-cx))/2);
     var newCW = cw+((fw-(cw-cx))/2);
@@ -58,8 +61,12 @@ app.displayDialogs = DialogModes.NO;
 
     app.activeDocument.selection.deselect();
 
+    var newH = Math.round(h*ratio*10000)/10000;
+
     var bounds = [newCX+" px",newCY+" px",newCW+" px",newCH+" px"];
+    app.activeDocument.resizeImage(null, newH + "px");                
     app.activeDocument.crop(bounds);
+
     var jpgSave = new JPEGSaveOptions();
     jpgSave.embedColorProfile = true;
     jpgSave.formatOptions = FormatOptions.STANDARDBASELINE;
@@ -73,6 +80,5 @@ app.displayDialogs = DialogModes.NO;
     }
     catch (error) {
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-        alert(error.message);
     }
 } 
