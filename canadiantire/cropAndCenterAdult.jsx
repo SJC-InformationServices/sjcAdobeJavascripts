@@ -8,10 +8,12 @@ var padding = 450;
 var minH=fh-(padding*2);
 var minW=fw-(padding*2);
 
-    var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\JEN\\IN");
-    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\JEN\\OUT");
+    var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250AdultJPG\\In");
+    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250AdultJPG\\OUT");
+    /*var inFolder = Folder.selectDialog("Select Source Folder");
+    var outFolder = Folder.selectDialog("Select Out Folder");*/
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-
+    
     for(var i=0;i<files.length;i++)
     {
         try {
@@ -73,7 +75,7 @@ var minW=fw-(padding*2);
     jpgSave.matte = MatteType.NONE;
     jpgSave.quality = 12;
 
-    var nf = File(outFolder +"\\"+ app.activeDocument.name);
+    var nf = File(outFolder +"/"+ app.activeDocument.name);
     app.activeDocument.saveAs(nf,jpgSave,true,Extension.LOWERCASE);
     app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
     f.remove();
