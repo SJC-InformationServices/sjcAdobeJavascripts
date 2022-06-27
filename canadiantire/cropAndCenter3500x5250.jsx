@@ -84,7 +84,7 @@ var minW=fw-(padding*2);
     catch (error) {
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
     }
-} 
+} return true;
 }
 function Kids(){
     
@@ -170,8 +170,13 @@ var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250KidJPG
     catch (error) {
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
     }
-} 
+}
+return true; 
 }
 
 Adults();
+
 Kids();
+
+
+executeAction(app.charIDToTypeID('quit'),undefined,DialogModes.No);
