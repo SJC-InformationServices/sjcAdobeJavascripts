@@ -7,3 +7,8 @@ foreach($file in $files)
     $fn
     $full
 }
+
+git pull origin master --allow-unrelated-histories
+git merge origin origin/master
+git commit -m "Merge"
+git push origin master
