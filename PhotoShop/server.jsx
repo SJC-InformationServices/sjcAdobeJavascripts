@@ -1,5 +1,4 @@
 #target "photoshop";
-<<<<<<< HEAD
 app.displayDialogs = DialogModes.NO;
 #include "lib/hotfolder.jsx";
 
@@ -19,18 +18,3 @@ try {
     
 }
 executeAction(app.charIDToTypeID('quit'),undefined,DialogModes.No);
-=======
-
-
-#include "alphalaydowns4x5AlignBottom.jsx";
-
-app.displayDialogs = DialogModes.NO;
-app.preferences.rulerUnits = Units.PIXELS;
-
-
-
-var a = alphalaydownalignbottom();
-
-
-
->>>>>>> d19052d019b75b7d4e3e5caf9d98ffc8b88faad6
