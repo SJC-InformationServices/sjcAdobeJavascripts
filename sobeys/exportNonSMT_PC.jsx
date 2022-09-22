@@ -22,7 +22,7 @@ for(var i=0;i<files.length;i++)
             
             var asset = new File(link.filePath.replace("\\Volumes\\","\\\\10.136.209.199\\"));
             var newAsset = new File(outFolder.fullName+"/"+link.name);
-            logFile.writeln(file.name+"\t"+link.name+"\t"+link.filePath);
+            
             if(!newAsset.exists){
                 try {
                     asset.copy(outFolder.fullName+"/"+link.name);

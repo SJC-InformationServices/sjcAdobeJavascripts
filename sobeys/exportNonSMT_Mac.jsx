@@ -4,8 +4,10 @@ var inFolder = Folder.selectDialog("Select Source Folder");
 var outFolder = Folder.selectDialog("Select Destination Folder");
 
 var files = inFolder.getFiles(/\.(indd)$/i);
+
 var logFile = File(outFolder.fsName+"/export_non_smt.csv");
 logFile.open("w");
+
 for(var i=0;i<files.length;i++)
 {
     var file = files[i];
