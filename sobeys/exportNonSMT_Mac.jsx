@@ -4,8 +4,8 @@ var inFolder = Folder.selectDialog("Select Source Folder");
 var outFolder = Folder.selectDialog("Select Destination Folder");
 
 var files = inFolder.getFiles(/\.(indd)$/i);
-var logFile = new File(outFolder.fullName+"/export_non_smt.csv");
-logFile.open(logFile,"w");
+var logFile = File(outFolder.fsName+"/export_non_smt.csv");
+logFile.open("w");
 for(var i=0;i<files.length;i++)
 {
     var file = files[i];
@@ -24,7 +24,7 @@ for(var i=0;i<files.length;i++)
             if(!newAsset.exists){
                 try {
                     asset.copy(outFolder.fullName+"/"+link.name);
-                    logFile.writeln(file.name+"\t"+link.name+"\t"+link.filePath+"\r\n");
+                    logFile.writeln(file.name+"\t"+link.name+"\t"+link.filePath);
                 }catch(e){
 
                 }
