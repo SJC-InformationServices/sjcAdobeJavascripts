@@ -4,6 +4,8 @@ var inFolder = Folder.selectDialog("Select Source Folder");
 var outFolder = Folder.selectDialog("Select Destination Folder");
 
 var files = inFolder.getFiles(/\.(indd)$/i);
+var logFile = new File(outFolder.fullName+"\\export_non_smt.csv");
+logFile.open(logFile,"w");
 
 for(var i=0;i<files.length;i++)
 {
@@ -23,6 +25,7 @@ for(var i=0;i<files.length;i++)
             if(!newAsset.exists){
                 try {
                     asset.copy(outFolder.fullName+"/"+link.name);
+                    logFile.writeln(file.name+"\t"+link.name+"\t"+link.filePath+"\r\n");
                 }catch(e){
 
                 }
@@ -33,3 +36,4 @@ for(var i=0;i<files.length;i++)
 app.activeDocument.close(SaveOptions.NO);
 
 }
+logFile.close();
