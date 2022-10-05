@@ -32,7 +32,11 @@ function hotFolder(properties) {
         return null;
     };
     this.error = function (e,msg) {
-        alert(msg+"\r\n"+e.line+"\r\n"+e.message);
+        /*alert(msg+"\r\n"+e.line+"\r\n"+e.message);*/
+var tmpF = File("tmplog.log");
+	 tmpF.open("a");
+         tmpF.writeln(msg+"\t"+e.line+"\t"+e.message);
+         tmpF.close();
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
     };
 
@@ -93,6 +97,7 @@ function hotFolder(properties) {
             var imgs = this.get("files");
             for (var i = 0; i < imgs.length; i++) {
                 var f = imgs[i];
+
                 app.open(f);
                 if(this.flattenFile()){
                     if(this.clipFile()){
