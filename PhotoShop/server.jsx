@@ -20,8 +20,10 @@ try {
         tmpF.writeln("Folder: "+source[i].Title);
         tmpF.writeln("Folder: "+source[i].source);
 	try {      
-        source[i].logFile = tmpF;
-        var cc = new hotFolder(source[i]);
+        var x = source[i];
+        x.logFile = tmpF;
+        
+        var cc = new hotFolder(x);
         cc.init();
         
         cc.process();
