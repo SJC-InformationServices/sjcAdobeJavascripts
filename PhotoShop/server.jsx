@@ -15,8 +15,6 @@ try {
     
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     
-    
-    source[i].logFile = tmpF;
     for(var i = 0;i<source.length;i++)
     {
         tmpF.writeln("Folder: "+source[i].Title);
@@ -26,7 +24,7 @@ try {
         cc.process();
 	} catch(e) {
         
-         tmpF.writeln("server.jsx " + source[i].Title+" "+source[i].source+" "+e.message);
+     tmpF.writeln("server.jsx " + source[i].Title+" "+source[i].source+" "+e.message);
         
 }
 tmpF.close();
