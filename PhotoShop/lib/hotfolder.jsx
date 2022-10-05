@@ -44,6 +44,7 @@ function hotFolder(properties) {
             for (var i in this.properties) {
                 this.set(i, properties[i])
             }
+            this.logFile.writeln(this.get("source"));
             if(this.get("source") != ""){
             this.set("inFolder", Folder(this.get("source") + "\\IN"));
             this.set("outFolder", Folder(this.get("source") + "\\OUT"));
