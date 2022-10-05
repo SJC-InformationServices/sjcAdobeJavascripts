@@ -22,7 +22,7 @@ try {
 	try {      
         var x = source[i];
         x.logFile = tmpF;
-        
+        alert(x);
         var cc = new hotFolder(x);
         cc.init();
         
