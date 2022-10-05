@@ -1,13 +1,13 @@
 #target "photoshop";
 app.displayDialogs = DialogModes.NO;
-#include "\\lib\\hotfolder.jsx";
+#include "D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
 
-let current = new Date();
-let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
-let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-let dateTime = cDate + ' ' + cTime;
+var current = new Date();
+var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+var dateTime = cDate + ' ' + cTime;
 
-var tmpF = File("tmplog.log");
+var tmpF = File("D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 	tmpF.open("a");
     tmpF.writeln("Start: " + dateTime);
     tmpF.close();
@@ -35,11 +35,11 @@ var tmpF = File("tmplog.log");
          tmpF.writeln(e.message);
          tmpF.close();
 }
-let current = new Date();
-let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
-let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-let dateTime = cDate + ' ' + cTime;
-var tmpF = File("tmplog.log");
+var current = new Date();
+var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+var dateTime = cDate + ' ' + cTime;
+var tmpF = File("D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 	tmpF.open("a");
     tmpF.writeln("End: " + dateTime);
     tmpF.close();
