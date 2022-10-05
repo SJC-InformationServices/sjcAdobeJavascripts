@@ -19,9 +19,10 @@ try {
     {
         tmpF.writeln("Folder: "+source[i].Title);
 	try {      
+        source[i].logFile = tmpF;
         var cc = new hotFolder(source[i]);
-        cc.set("logFile",tmpF);
         cc.init();
+        
         cc.process();
 	} catch(e) {
         
