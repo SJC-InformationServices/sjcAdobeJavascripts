@@ -14,19 +14,19 @@ var tmpF = File("D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 try {
     
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
+    alert(source);
     tmpF.writeln("Start: " + dateTime);
-    
+    source[i].logFIle = tmpF;
     for(var i = 0;i<source.length;i++)
     {
         tmpF.writeln("Folder: "+source[i].Title);
 	try {      
         var cc = new hotFolder(source[i]);
-        cc.set("logFile",tmpF);
         cc.init();
         cc.process();
 	} catch(e) {
         
-         tmpF.writeln(source[i].Title+" "+source[i].source+" "+e.message);
+         tmpF.writeln("server.jsx " + source[i].Title+" "+source[i].source+" "+e.message);
         
 }
 tmpF.close();

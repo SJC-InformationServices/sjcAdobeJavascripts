@@ -15,6 +15,7 @@ function hotFolder(properties) {
     this.files;
     this.AnchorPosition;
     this.export_for_web;
+    this.logFile;
     
 
     this.set = function (k, v) {
