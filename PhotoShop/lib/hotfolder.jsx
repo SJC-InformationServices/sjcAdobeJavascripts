@@ -33,7 +33,7 @@ function hotFolder(properties) {
     };
     this.error = function (e,msg) {
         alert(msg+"\r\n"+e.line+"\r\n"+e.message);
-var tmpF = File("tmplog.log");
+var tmpF = File("D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 	 tmpF.open("a");
          tmpF.writeln(msg+"\t"+e.line+"\t"+e.message);
          tmpF.close();
