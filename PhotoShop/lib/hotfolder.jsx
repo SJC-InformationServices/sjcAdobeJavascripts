@@ -32,7 +32,7 @@ function hotFolder(properties) {
         return null;
     };
     this.error = function (e,msg) {
-        //alert(msg+"\r\n"+e.line+"\r\n"+e.message);
+        /*alert(msg+"\r\n"+e.line+"\r\n"+e.message);*/
 
          this.logFile.writeln(msg+"\t"+e.line+"\t"+e.message);
          
@@ -42,10 +42,8 @@ function hotFolder(properties) {
     this.init = function () {
         try {
             for (var i in this.properties) {
-                this.set(i, properties[i]);
-                this.logFile.writeln(i +":"+ properties[i]);
+                this.set(i, properties[i])
             }
-            
             if(this.get("source") != ""){
             this.set("inFolder", Folder(this.get("source") + "\\IN"));
             this.set("outFolder", Folder(this.get("source") + "\\OUT"));
