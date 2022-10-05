@@ -35,7 +35,7 @@ tmpF.close();
     }
 } catch (e){
 
-         tmpF.writeln(e.message);
+         tmpF.writeln("Can't Parse Source File" + e.message);
          
 }
 var current = new Date();
