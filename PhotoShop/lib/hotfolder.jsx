@@ -32,11 +32,10 @@ function hotFolder(properties) {
         return null;
     };
     this.error = function (e,msg) {
-        alert(msg+"\r\n"+e.line+"\r\n"+e.message);
-var tmpF = File("D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
-	 tmpF.open("a");
-         tmpF.writeln(msg+"\t"+e.line+"\t"+e.message);
-         tmpF.close();
+        //alert(msg+"\r\n"+e.line+"\r\n"+e.message);
+
+         this.logFile.writeln(msg+"\t"+e.line+"\t"+e.message);
+         
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
     };
 
