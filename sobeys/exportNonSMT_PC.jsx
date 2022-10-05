@@ -26,7 +26,7 @@ for(var i=0;i<files.length;i++)
             if(!newAsset.exists){
                 try {
                     asset.copy(outFolder.fullName+"/"+link.name);
-                    logFile.writeln(file.name+"\t"+link.name+"\t"+link.filePath+"\r\n");
+                    logFile.writeln(file.name+"\t"+link.name+"\t"+link.filePath);
                 }catch(e){
 
                 }
