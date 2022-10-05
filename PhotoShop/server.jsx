@@ -41,12 +41,12 @@ tmpF.close();
          tmpF.writeln("Can't Parse Source File" + e.message);
          
 }
-var current = new Date();
-var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
-var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-var dateTime = cDate + ' ' + cTime;
+var dcurrent = new Date();
+var dcDate = dcurrent.getFullYear() + '-' + (dcurrent.getMonth() + 1) + '-' + dcurrent.getDate();
+var dcTime = dcurrent.getHours() + ":" + dcurrent.getMinutes() + ":" + dcurrent.getSeconds();
+var ddateTime = dcDate + ' ' + dcTime;
 
-    tmpF.writeln("End: " + dateTime);
+    tmpF.writeln("End: " + ddateTime);
     tmpF.close();
 
 /*executeAction(app.charIDToTypeID('quit'),undefined,DialogModes.No);*/
