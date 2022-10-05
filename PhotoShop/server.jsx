@@ -18,6 +18,7 @@ try {
     for(var i = 0;i<source.length;i++)
     {
         tmpF.writeln("Folder: "+source[i].Title);
+        tmpF.writeln("Folder: "+source[i].source);
 	try {      
         source[i].logFile = tmpF;
         var cc = new hotFolder(source[i]);

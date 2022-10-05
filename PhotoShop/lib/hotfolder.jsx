@@ -41,9 +41,9 @@ function hotFolder(properties) {
     };
 
     this.init = function () {
-        try {
+        
             for (var i in this.properties) {
-                this.set(i, properties[i])
+                this.set(i, properties[i]);
             }
             if(this.get("source") != ""){
             this.set("inFolder", Folder(this.get("source") + "\\IN"));
@@ -62,10 +62,6 @@ function hotFolder(properties) {
                     this.AnchorPosition = AnchorPosition.TOPCENTER;
                     break;
             }}
-
-        } catch (e) {
-            this.error(e,"init");
-        }
 
     };
     this.magicWand = function (x, y, t, a, c, s) {
