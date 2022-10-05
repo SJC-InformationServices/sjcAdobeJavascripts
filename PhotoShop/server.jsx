@@ -17,4 +17,4 @@ try {
 } catch (e){
     
 }
-executeAction(app.charIDToTypeID('quit'),undefined,DialogModes.No);
+
