@@ -48,7 +48,11 @@ function hotFolder(properties) {
             if(this.get("source") != ""){
             this.set("inFolder", Folder(this.get("source") + "\\IN"));
             this.set("outFolder", Folder(this.get("source") + "\\OUT"));
-            this.set("files", this.get("inFolder").getFiles(/\.(psd|tif|jpg|)$/i));
+            if(this.inFolder.exists){
+                this.set("files", this.get("inFolder").getFiles(/\.(psd|tif|jpg|)$/i));
+            }else{
+                this.error({"line":54,"message":"Folder Not Found"},"In Folder Not Found");
+            }
             }
             if(typeof this.align != 'undefined'){
             switch (this.align.Value) {
