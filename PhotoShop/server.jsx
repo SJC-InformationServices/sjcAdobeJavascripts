@@ -22,10 +22,11 @@ try {
 	try {      
         var x = source[i];
         x.logFile = tmpF;
-        alert(x);
-        var cc = new hotFolder(x);
-        cc.init();
         
+        var cc = new hotFolder(x);
+        
+        cc.init();
+        tmpF.writeln(x.source+" Total Files: "+cc.get("files").length);
         cc.process();
 	} catch(e) {
         
