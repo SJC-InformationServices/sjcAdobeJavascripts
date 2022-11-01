@@ -1,13 +1,13 @@
 #target "photoshop";
-app.displayDialogs = DialogModes.NO;
-#include "/D/repo/sjcAdobeJavascripts/PhotoShop/lib/hotfolder.jsx";
+/*app.displayDialogs = DialogModes.NO;*/
+#include "E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
 var dateTime = cDate + ' ' + cTime;
 
-var tmpF = File("/D/repo/sjcAdobeJavascripts/PhotoShop/logs/tmplog.log");
+var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 	tmpF.open("a");
     tmpF.writeln("Start: " + dateTime);
 
@@ -36,7 +36,7 @@ tmpF.close();
         
 
     }
-} catch (e){alert("parsing error");
+} catch (e){
         tmpF.writeln($.getenv('sjcHotFolders'));
          tmpF.writeln("Can't Parse Source File" + e.message);
          
