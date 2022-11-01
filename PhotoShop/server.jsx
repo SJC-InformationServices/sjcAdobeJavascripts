@@ -36,7 +36,7 @@ tmpF.close();
         
 
     }
-} catch (e){
+} catch (e){alert("parsing error");
         tmpF.writeln($.getenv('sjcHotFolders'));
          tmpF.writeln("Can't Parse Source File" + e.message);
          
