@@ -14,7 +14,7 @@ var tmpF = File("D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 try {
     
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
-    
+    tmpF.writeln("Total Folders:" + source.length);
     for(var i = 0;i<source.length;i++)
     {
         tmpF.writeln("Folder: "+source[i].source);
