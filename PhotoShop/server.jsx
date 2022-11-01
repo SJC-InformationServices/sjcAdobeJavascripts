@@ -17,7 +17,6 @@ try {
     
     for(var i = 0;i<source.length;i++)
     {
-        tmpF.writeln("Folder: "+source[i].Title);
         tmpF.writeln("Folder: "+source[i].source);
 	try {      
         var x = source[i];
