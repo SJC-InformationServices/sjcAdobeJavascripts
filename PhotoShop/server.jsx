@@ -1,13 +1,13 @@
 #target "photoshop";
 app.displayDialogs = DialogModes.NO;
-#include "D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
+#include "/D/repo/sjcAdobeJavascripts/PhotoShop/lib/hotfolder.jsx";
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
 var dateTime = cDate + ' ' + cTime;
 
-var tmpF = File("D:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
+var tmpF = File("/D/repo/sjcAdobeJavascripts/PhotoShop/logs/tmplog.log");
 	tmpF.open("a");
     tmpF.writeln("Start: " + dateTime);
 
