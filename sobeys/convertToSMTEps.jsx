@@ -14,7 +14,7 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
         f=files[i];
         app.open(f);
         var doc = app.activeDocument;
-        doc.colorProfileType=ColorProfile.CUSTOM;
+        //doc.colorProfileType=ColorProfile.CUSTOM;
         doc.convertProfile("U.S Web Coated (SWOP) v2",Intent.PERCEPTUAL,false,true);
         try {
             var path = doc.pathItems.getByName(this.clippingPath.Value).makeClippingPath(0.2);        
