@@ -6,7 +6,7 @@ var inFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippi
 var outFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\Out\\");
 
 var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-    alert(files.length);
+    
     for(var i=0;i<files.length;i++)
     {
         try {
@@ -14,8 +14,10 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
         f=files[i];
         app.open(f);
         var doc = app.activeDocument;
-        doc.colorProfileType=ColorProfile.CUSTOM;
-        doc.convertProfile("U.S Web Coated (SWOP) v2",Intent.PERCEPTUAL,false,true);
+        alert(doc.colorProfileName);
+        //doc.colorProfileName = "U.S Web Coated (SWOP) v2";
+        //doc.colorProfileType=ColorProfile.CUSTOM; 
+        doc.convertProfile("U.S. Web Coated (SWOP) v2",Intent.PERCEPTUAL,false,true);
         try {
             var path = doc.pathItems.getByName(this.clippingPath.Value).makeClippingPath(0.2);        
         } catch (e) {
@@ -33,6 +35,6 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
 
     }catch(e){
-        alert(e.message);
+        
     }
 }
