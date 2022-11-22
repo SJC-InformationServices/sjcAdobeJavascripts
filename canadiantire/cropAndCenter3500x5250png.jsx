@@ -1,16 +1,14 @@
-#target "photoshop";
-app.displayDialogs = DialogModes.NO;
-
+function cdnTire3500png(){
 var fw = 3500;
 var fh = 5250;
 var padding = 150;
 var minH = fh - (padding * 2);
 var minW = fw - (padding * 2);
 
-/*var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250AdultJPG\\In");
-var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250AdultJPG\\OUT");*/
-var inFolder = Folder.selectDialog("Select Source Folder");
-var outFolder = Folder.selectDialog("Select Out Folder");
+var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_JPG_PNG\\In");
+var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_JPG_PNG\\OUT");
+/*var inFolder = Folder.selectDialog("Select Source Folder");
+var outFolder = Folder.selectDialog("Select Out Folder");*/
 
 
 var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
@@ -52,7 +50,7 @@ for (var i = 0; i < files.length; i++) {
                 }
             }}
             catch(e){
-                alert("Clipping:"+e.message);
+                
             }
         }
        
@@ -73,7 +71,7 @@ for (var i = 0; i < files.length; i++) {
            
             doc.resizeCanvas(fw, fh, AnchorPosition.MIDDLECENTER);
         } catch (e) {
-            alert("Resize: "+e.message);
+            //alert("Resize: "+e.message);
         }
         
 
@@ -88,7 +86,7 @@ for (var i = 0; i < files.length; i++) {
                 app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 
     } catch (error) {
-        alert("Error:"+error.line+" "+error.message);
+        //alert("Error:"+error.line+" "+error.message);
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
     }
-}
+}}
