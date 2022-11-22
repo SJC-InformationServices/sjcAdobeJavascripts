@@ -1,7 +1,7 @@
 function convertToSMTEps(){
-var inFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\In\\");
+var inFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\In");
 //var inFolder = Folder.selectDialog("Select Source Folder");
-var outFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\Out\\");
+var outFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\Out");
 
 var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
     
