@@ -1,7 +1,7 @@
 function convertToSMTEps(){
-var inFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\In\\");
+var inFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\In");
 //var inFolder = Folder.selectDialog("Select Source Folder");
-var outFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\Out\\");
+var outFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\Out");
 
 var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
     
@@ -12,7 +12,7 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
         f=files[i];
         app.open(f);
         var doc = app.activeDocument;
-        alert(doc.colorProfileName);
+        //alert(doc.colorProfileName);
         //doc.colorProfileName = "U.S Web Coated (SWOP) v2";
         //doc.colorProfileType=ColorProfile.CUSTOM; 
         doc.convertProfile("U.S. Web Coated (SWOP) v2",Intent.PERCEPTUAL,false,true);

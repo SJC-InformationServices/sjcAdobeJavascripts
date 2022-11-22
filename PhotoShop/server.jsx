@@ -2,6 +2,7 @@
 /*app.displayDialogs = DialogModes.NO;*/
 #include "E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\cropAndCenter3500x5250png.jsx"
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
@@ -14,6 +15,7 @@ var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 
 try {
     convertToSMTEps();
+    cdnTire3500png();
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
     for(var i = 0;i<source.length;i++)
