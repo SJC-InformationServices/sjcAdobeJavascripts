@@ -12,7 +12,7 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
         f=files[i];
         app.open(f);
         var doc = app.activeDocument;
-        alert(doc.colorProfileName);
+        //alert(doc.colorProfileName);
         //doc.colorProfileName = "U.S Web Coated (SWOP) v2";
         //doc.colorProfileType=ColorProfile.CUSTOM; 
         doc.convertProfile("U.S. Web Coated (SWOP) v2",Intent.PERCEPTUAL,false,true);
@@ -33,7 +33,7 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
 
     }catch(e){
-        
+        return e;
     }
 }
 return true;

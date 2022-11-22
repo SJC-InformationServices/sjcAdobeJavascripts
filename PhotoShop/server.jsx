@@ -13,7 +13,12 @@ var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
     tmpF.writeln("Start: " + dateTime);
 
 try {
-    convertToSMTEps();
+    try 
+     {
+        convertToSMTEps();}
+         catch(e) {
+
+     }
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
     for(var i = 0;i<source.length;i++)
