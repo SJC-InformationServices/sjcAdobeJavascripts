@@ -1,6 +1,7 @@
 #target "photoshop";
 /*app.displayDialogs = DialogModes.NO;*/
 #include "E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
@@ -12,7 +13,7 @@ var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
     tmpF.writeln("Start: " + dateTime);
 
 try {
-    
+    convertToSMTEps();
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
     for(var i = 0;i<source.length;i++)
@@ -48,5 +49,5 @@ var ddateTime = dcDate + ' ' + dcTime;
 
     tmpF.writeln("End: " + ddateTime);
     tmpF.close();
-#include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
+
 /*executeAction(app.charIDToTypeID('quit'),undefined,DialogModes.No);*/
