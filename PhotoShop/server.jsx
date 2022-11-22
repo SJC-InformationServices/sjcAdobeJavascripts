@@ -16,9 +16,12 @@ var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
 try {
     try 
      {
-        convertToSMTEps();}
+        convertToSMTEps();
+        cdnTire3500png();
+        
+    }
          catch(e) {
-
+            tmpF.writeln("SMT or CDNTIRE");
      }
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
