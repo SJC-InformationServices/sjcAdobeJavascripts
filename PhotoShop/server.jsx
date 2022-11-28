@@ -2,11 +2,7 @@
 /*app.displayDialogs = DialogModes.NO;*/
 #include "E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
-<<<<<<< HEAD
-#include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\cropAndCenter3500x5250png.jsx"
-=======
 #include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\cropAndCenter3500x5250png.jsx";
->>>>>>> a56baeec5c8352444df81ee72cf442355865e28c
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
