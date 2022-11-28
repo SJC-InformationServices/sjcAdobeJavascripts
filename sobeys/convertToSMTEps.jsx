@@ -30,7 +30,7 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
       var nf = File(outFolder +"/"+ app.activeDocument.name);
       app.activeDocument.saveAs(nf,epsSaveOpts,true,Extension.LOWERCASE);
       app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-
+        f.remove();
 
     }catch(e){
         return e;

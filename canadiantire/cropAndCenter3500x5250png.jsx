@@ -84,7 +84,7 @@ for (var i = 0; i < files.length; i++) {
                 exportOptions.includeProfile = true; // false = don't embedd ICC profile
                 app.activeDocument.exportDocument(nf, ExportType.SAVEFORWEB, exportOptions,Extension.LOWERCASE);
                 app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-
+                f.remove();
     } catch (error) {
         //alert("Error:"+error.line+" "+error.message);
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
