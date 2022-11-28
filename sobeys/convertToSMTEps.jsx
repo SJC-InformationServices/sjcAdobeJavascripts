@@ -17,9 +17,9 @@ var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
         //doc.colorProfileType=ColorProfile.CUSTOM; 
         doc.convertProfile("U.S. Web Coated (SWOP) v2",Intent.PERCEPTUAL,false,true);
         try {
-            var path = doc.pathItems.getByName(this.clippingPath.Value).makeClippingPath(0.2);        
+            path = doc.pathItems.getByName(this.clippingPath.Value).makeClippingPath(0.2);        
         } catch (e) {
-            var path = doc.pathItems[0].makeClippingPath(0.2);
+            path = doc.pathItems[0].makeClippingPath(0.2);
         }
         epsSaveOpts = new EPSSaveOptions();
           epsSaveOpts.embedColorProfile = true;

@@ -5,10 +5,10 @@ var padding = 150;
 var minH = fh - (padding * 2);
 var minW = fw - (padding * 2);
 
-var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_PNG\\In");
-var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_PNG\\OUT");
-/*var inFolder = Folder.selectDialog("Select Source Folder");
-var outFolder = Folder.selectDialog("Select Out Folder");*/
+/*var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_PNG\\In");
+var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_PNG\\OUT");*/
+var inFolder = Folder.selectDialog("Select Source Folder");
+var outFolder = Folder.selectDialog("Select Out Folder");
 
 
 var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
@@ -84,7 +84,7 @@ for (var i = 0; i < files.length; i++) {
                 exportOptions.includeProfile = true; // false = don't embedd ICC profile
                 app.activeDocument.exportDocument(nf, ExportType.SAVEFORWEB, exportOptions,Extension.LOWERCASE);
                 app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-                f.remove();
+                //f.remove();
     } catch (error) {
         //alert("Error:"+error.line+" "+error.message);
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
@@ -92,3 +92,5 @@ for (var i = 0; i < files.length; i++) {
     }
 }
 return true;}
+
+cdnTire3500png();
