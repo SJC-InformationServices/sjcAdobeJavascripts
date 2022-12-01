@@ -1,15 +1,15 @@
-function cdnTire3500png(){
+function cdnTire3500png()
+{
 var fw = 3500;
 var fh = 5250;
 var padding = 150;
 var minH = fh - (padding * 2);
 var minW = fw - (padding * 2);
 
-var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_PNG\\In");
-var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_PNG\\OUT");
+var inFolder =  Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\In");
+    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\OUT");
 /*var inFolder = Folder.selectDialog("Select Source Folder");
 var outFolder = Folder.selectDialog("Select Out Folder");*/
-
 
 var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
