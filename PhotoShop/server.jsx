@@ -2,14 +2,15 @@
 app.displayDialogs = DialogModes.NO;
 #include "E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
-//#include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\cropAndCenter3500x5250png.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250png.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250jpgBkgroud.jsx";
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
 var dateTime = cDate + ' ' + cTime;
 
-var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog.log");
+var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog-"+cDate+".log");
 	tmpF.open("a");
     tmpF.writeln("Start: " + dateTime);
 
@@ -18,7 +19,7 @@ try {
      {
         convertToSMTEps();
         cdnTire3500png();
-        
+        cdnTire3500jpgBkgrd();
     }
          catch(e) {
             tmpF.writeln("SMT or CDNTIRE");
