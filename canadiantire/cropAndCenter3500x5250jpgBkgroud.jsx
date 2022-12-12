@@ -21,7 +21,7 @@ function cdnTire3500jpgBkgrd(){
         desc.putBoolean(charIDToTypeID('AntA'), a); // anti-alias
         executeAction(charIDToTypeID('setd'), desc, DialogModes.NO);
         }catch(e){
-            this.error(e,"magicWand");
+            return e;
         }
     }
     var fw = 3500;
