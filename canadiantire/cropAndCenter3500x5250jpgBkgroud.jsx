@@ -138,6 +138,7 @@ doc.flatten();
                 jpgSave.quality = 12;
                 app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
                 app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                f.copy(outFolder + "\\" + f.name);
                 f.remove();
         } catch (error) {
             //alert("Error:"+error.line+" "+error.message);
