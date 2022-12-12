@@ -143,7 +143,7 @@ doc.flatten();
         } catch (error) {
             //alert("Error:"+error.line+" "+error.message);
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-            return false;
+            
         }
     }
     return true;}
