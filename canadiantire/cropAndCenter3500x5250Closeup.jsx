@@ -7,8 +7,8 @@ function cdnTire3500x5250Closeup(){
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
     
-    var inFolder =  Folder("/10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg-closeups/In");
-    var outFolder = Folder("/10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg-closeups/OUT");
+    var inFolder =  Folder("//10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg-closeups/In");
+    var outFolder = Folder("//10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg-closeups/OUT");
     /*var inFolder = Folder.selectDialog("Select Source Folder");
     var outFolder = Folder.selectDialog("Select Out Folder");*/
     
@@ -113,4 +113,3 @@ doc.flatten();
     return true;
 }
     
-cdnTire3500x5250Closeup();
