@@ -3,6 +3,7 @@ app.displayDialogs = DialogModes.NO;
 #include "E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250png.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250Closeup.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250jpgBkgroud.jsx";
 
 var current = new Date();
@@ -20,6 +21,7 @@ try {
         convertToSMTEps();
         cdnTire3500png();
         cdnTire3500jpgBkgrd();
+        cdnTire3500x5250Closeup();
     }
          catch(e) {
             tmpF.writeln("SMT or CDNTIRE");
