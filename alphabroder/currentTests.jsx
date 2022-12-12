@@ -9,6 +9,7 @@ var w = parseFloat(doc.width);
 var h = parseFloat(doc.height);
 
 var cropPath,pathOne;
+var outFolder=Folder("/C/Users/KevinNoseworthy/Desktop/New folder/out");
 
     for(var y=0;y<app.activeDocument.pathItems.length;y++)
     {
@@ -59,7 +60,7 @@ if (objWidth > objHeight)
 }
 var nfpng = File(outFolder +"/"+ app.activeDocument.name.split(".")[0]+".png");
 
-exportOptions = new ExportOptionsSaveForWeb();
+var exportOptions = new ExportOptionsSaveForWeb();
                 exportOptions.format = SaveDocumentType.PNG;
                 exportOptions.PNG8 = false; // false = PNG-24
                 exportOptions.transparency = true; // true = transparent
@@ -86,7 +87,7 @@ doc.selection.fill(colorRef);
 fillLayer.move(als[als.length-1],ElementPlacement.PLACEAFTER);
 
 doc.flatten();    
-var outFolder=Folder("/C/Users/KevinNoseworthy/Desktop/New folder/out");
+
 
             var nf = File(outFolder +"/"+ app.activeDocument.name.split(".")[0]+".jpg");
             var jpgSave = new JPEGSaveOptions();
