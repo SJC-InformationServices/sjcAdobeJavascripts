@@ -19,13 +19,15 @@ for (var i = 0; i < files.length; i++) {
         f = files[i];
         app.open(f);
         var doc = app.activeDocument;
+        
+        doc.flatten(); 
         var als = app.activeDocument.artLayers;
-        for (var ii = 0; ii < als.length; ii++) {
-            var al = als[ii];
-            if (al.isBackgroundLayer) {
-                al.remove();
-            }
+       for (var ii = 0; ii < als.length; ii++) {
+        var al = als[ii];
+        if (al.isBackgroundLayer) {
+            al.isBackgroundLayer=false;
         }
+    }
         
         try {
             var path = app.activeDocument.pathItems.getByName("Path 1");
@@ -50,7 +52,8 @@ for (var i = 0; i < files.length; i++) {
                 }
             }}
             catch(e){
-                
+                app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                continue;
             }
         }
        
@@ -71,7 +74,8 @@ for (var i = 0; i < files.length; i++) {
            
             doc.resizeCanvas(fw, fh, AnchorPosition.MIDDLECENTER);
         } catch (e) {
-            //alert("Resize: "+e.message);
+            app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+            continue;
         }
         
 
@@ -88,7 +92,7 @@ for (var i = 0; i < files.length; i++) {
     } catch (error) {
         //alert("Error:"+error.line+" "+error.message);
         app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-        return false;
+        continue;
     }
 }
 return true;}
