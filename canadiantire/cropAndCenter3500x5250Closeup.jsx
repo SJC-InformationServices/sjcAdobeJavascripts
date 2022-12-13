@@ -101,6 +101,7 @@ doc.flatten();
                 jpgSave.quality = 12;
                 app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
                 app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                f.remove();
 
         }
         catch (e)
