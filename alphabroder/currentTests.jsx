@@ -21,15 +21,18 @@ var outFolder=Folder("/C/Users/KevinNoseworthy/Desktop/New folder/out");
 var doc = app.activeDocument;
 var w = parseFloat(doc.width);
 var h = parseFloat(doc.height);
-
+//f.copy(outFolder + "\\" + f.name);
 var als = doc.artLayers;
 for (var ii = 0; ii < als.length; ii++) {
-var al = als[ii];
-if (al.isBackgroundLayer || al.name=="Background") {
-    al.remove();
+    var al = als[ii];
+    if (al.isBackgroundLayer) {
+        al.isBackgroundLayer=false;
+    }
+    if (al.name.toUpperCase() != "LAYER 1") {
+        al.remove();
+    }
 }
-}
-doc.mergeVisibleLayers();
+//doc.mergeVisibleLayers();
    
 var crop = getCropDimensions();
 
@@ -75,6 +78,16 @@ doc.selection.deselect();
 //alert(cropc.join('\r\n')+"\r\n"+[doc.width,doc.height].join("\r\n")+"\r\n"+nCrop.join("\r\n"));
 doc.crop(nCrop);
 doc.resizeCanvas(fw,fh,AnchorPosition.MIDDLECENTER);
+var nfpng = File(outFolder +"\\"+ app.activeDocument.name.split(".")[0]+".png");
+                exportOptions = new ExportOptionsSaveForWeb();
+                exportOptions.format = SaveDocumentType.PNG;
+                exportOptions.PNG8 = false; // false = PNG-24
+                exportOptions.transparency = true; // true = transparent
+                exportOptions.interlaced = false; // true = interlacing on
+                exportOptions.includeProfile = true; // false = don't embedd ICC profile
+                app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions,Extension.LOWERCASE);
+            
+/*
 var fillLayer = als.add();
 fillLayer.name="Fill";
 doc.selection.selectAll();
@@ -87,10 +100,12 @@ doc.selection.fill(colorRef);
 fillLayer.move(als[als.length-1],ElementPlacement.PLACEAFTER);
 doc.mergeVisibleLayers();  
 
+
+
             var nf = File(outFolder +"\\"+ app.activeDocument.name.split(".")[0]+".jpg");
             var jpgSave = new JPEGSaveOptions();
                 jpgSave.embedColorProfile = true;
                 jpgSave.formatOptions = FormatOptions.STANDARDBASELINE;
                 jpgSave.matte = MatteType.NONE;
                 jpgSave.quality = 12;
-                app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
+                app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);*/
