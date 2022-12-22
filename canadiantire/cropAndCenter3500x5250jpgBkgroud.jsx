@@ -1,28 +1,4 @@
 function cdnTire3500jpgBkgrd() {
-    function magicWand(x, y, t, a, c, s) {
-        try {
-            if (arguments.length < 2) return; // make sure have x,y
-            if (undefined == t) var t = 35; // set defaults of optional arguments
-            if (undefined == a) var a = true;
-            if (undefined == c) var c = false;
-            if (undefined == s) var s = false;
-            var desc = new ActionDescriptor();
-            var ref = new ActionReference();
-            ref.putProperty(charIDToTypeID('Chnl'), charIDToTypeID('fsel'));
-            desc.putReference(charIDToTypeID('null'), ref);
-            var positionDesc = new ActionDescriptor();
-            positionDesc.putUnitDouble(charIDToTypeID('Hrzn'), charIDToTypeID('#Rlt'), x); // in pixels
-            positionDesc.putUnitDouble(charIDToTypeID('Vrtc'), charIDToTypeID('#Rlt'), y);
-            desc.putObject(charIDToTypeID('T   '), charIDToTypeID('Pnt '), positionDesc);
-            desc.putInteger(charIDToTypeID('Tlrn'), t); // tolerance
-            desc.putBoolean(charIDToTypeID('Mrgd'), s); // sample all layers
-            if (!c) desc.putBoolean(charIDToTypeID("Cntg"), false); //  contiguous
-            desc.putBoolean(charIDToTypeID('AntA'), a); // anti-alias
-            executeAction(charIDToTypeID('setd'), desc, DialogModes.NO);
-        } catch (e) {
-            return e;
-        }
-    }
 
     function getCropDimensions() {
         for (var y = 0; y < app.activeDocument.pathItems.length; y++) {
@@ -67,7 +43,7 @@ function cdnTire3500jpgBkgrd() {
                     al.remove();
                 }
             }
-
+            doc.mergeVisibleLayers();  
             var crop = getCropDimensions();
 
             var objWidth = parseFloat(crop[2].replace("px", "")) - parseFloat(crop[0].replace("px", ""));
@@ -120,7 +96,7 @@ function cdnTire3500jpgBkgrd() {
             colorRef.cmyk.black = "0";
             doc.selection.fill(colorRef);
             fillLayer.move(als[als.length - 1], ElementPlacement.PLACEAFTER);
-            doc.flatten();
+            doc.mergeVisibleLayers();  
 
             var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
             var jpgSave = new JPEGSaveOptions();

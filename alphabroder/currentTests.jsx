@@ -1,4 +1,3 @@
-
 function getCropDimensions(){
     for(var y=0;y<app.activeDocument.pathItems.length;y++)
     {
@@ -30,6 +29,7 @@ if (al.isBackgroundLayer || al.name=="Background") {
     al.remove();
 }
 }
+doc.mergeVisibleLayers();
    
 var crop = getCropDimensions();
 
@@ -85,7 +85,7 @@ colorRef.cmyk.yellow="6";
 colorRef.cmyk.black="0";
 doc.selection.fill(colorRef);
 fillLayer.move(als[als.length-1],ElementPlacement.PLACEAFTER);
-doc.flatten();    
+doc.mergeVisibleLayers();  
 
             var nf = File(outFolder +"\\"+ app.activeDocument.name.split(".")[0]+".jpg");
             var jpgSave = new JPEGSaveOptions();
