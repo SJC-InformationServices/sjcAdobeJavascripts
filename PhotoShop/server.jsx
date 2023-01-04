@@ -19,7 +19,7 @@ try {
     try 
      {
         convertToSMTEps();
-        cdnTire3500png();
+        //cdnTire3500png();
         cdnTire3500jpgBkgrd();
         cdnTire3500x5250Closeup();
     }
