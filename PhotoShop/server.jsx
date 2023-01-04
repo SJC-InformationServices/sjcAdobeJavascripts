@@ -2,7 +2,7 @@
 app.displayDialogs = DialogModes.NO;
 #include "E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\lib\\hotfolder.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
-#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250png.jsx";
+//#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250png.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250Closeup.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250jpgBkgroud.jsx";
 

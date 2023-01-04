@@ -87,7 +87,7 @@ var nfpng = File(outFolder +"\\"+ app.activeDocument.name.split(".")[0]+".png");
                 exportOptions.includeProfile = true; // false = don't embedd ICC profile
                 app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions,Extension.LOWERCASE);
             
-/*
+
 var fillLayer = als.add();
 fillLayer.name="Fill";
 doc.selection.selectAll();
