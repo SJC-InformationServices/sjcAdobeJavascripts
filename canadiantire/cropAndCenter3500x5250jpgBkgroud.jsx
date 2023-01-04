@@ -27,6 +27,12 @@ function cdnTire3500jpgBkgrd() {
 
     for (var i = 0; i < files.length; i++) {
         try {
+            f = files[i];
+            f.copy(outFolder + "\\" + f.name);
+            app.open(f);
+            var doc = app.activeDocument;
+            var w = parseFloat(doc.width);
+            var h = parseFloat(doc.height);
 
             var doc = app.activeDocument;
             var w = parseFloat(doc.width);
