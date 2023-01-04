@@ -86,6 +86,14 @@ function cdnTire3500jpgBkgrd() {
             //alert(cropc.join('\r\n')+"\r\n"+[doc.width,doc.height].join("\r\n")+"\r\n"+nCrop.join("\r\n"));
             doc.crop(nCrop);
             doc.resizeCanvas(fw, fh, AnchorPosition.MIDDLECENTER);
+            var nfpng = File(outFolder +"\\"+ app.activeDocument.name.split(".")[0]+".png");
+                exportOptions = new ExportOptionsSaveForWeb();
+                exportOptions.format = SaveDocumentType.PNG;
+                exportOptions.PNG8 = false; // false = PNG-24
+                exportOptions.transparency = true; // true = transparent
+                exportOptions.interlaced = false; // true = interlacing on
+                exportOptions.includeProfile = true; // false = don't embedd ICC profile
+                app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions,Extension.LOWERCASE);
             var fillLayer = als.add();
             fillLayer.name = "Fill";
             doc.selection.selectAll();
