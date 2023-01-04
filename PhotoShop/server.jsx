@@ -19,13 +19,25 @@ try {
     try 
      {
         convertToSMTEps();
-        //cdnTire3500png();
+    }
+         catch(e) {
+            tmpF.writeln("SMT");
+     }
+     try 
+     {
         cdnTire3500jpgBkgrd();
+    }
+         catch(e) {
+            tmpF.writeln("CDN Tire Jpgs / PNG");
+     }
+     try 
+     {
         cdnTire3500x5250Closeup();
     }
          catch(e) {
-            tmpF.writeln("SMT or CDNTIRE");
-     }
+            tmpF.writeln("CDN Tire CloseUps");
+     }       
+             
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
     for(var i = 0;i<source.length;i++)
