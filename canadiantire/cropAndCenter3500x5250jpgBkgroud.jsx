@@ -30,14 +30,11 @@ function cdnTire3500jpgBkgrd() {
             f = files[i];
             f.copy(outFolder + "\\" + f.name);
             app.open(f);
-            var doc = app.activeDocument;
-            var w = parseFloat(doc.width);
-            var h = parseFloat(doc.height);
 
             var doc = app.activeDocument;
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
-            //f.copy(outFolder + "\\" + f.name);
+            
             var als = doc.artLayers;
             for (var ii = 0; ii < als.length; ii++) {
                 var al = als[ii];
@@ -50,8 +47,6 @@ function cdnTire3500jpgBkgrd() {
                 }
             }
             doc.resizeCanvas(w + padding * 2 + "px", h + padding * 2 + "px", AnchorPosition.MIDDLECENTER);
-
-            //doc.mergeVisibleLayers();
 
             var crop = getCropDimensions();
             var ratio, rRatio;
