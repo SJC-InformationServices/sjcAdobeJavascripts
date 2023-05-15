@@ -1,12 +1,17 @@
 #target "photoshop";
 app.displayDialogs = DialogModes.NO;
 
+function getCropDimensions() {
+        for (var y = 0; y < app.activeDocument.pathItems.length; y++) {
+            p = app.activeDocument.pathItems[y];
+            if (p.name == "Path 1") {
+                p.makeSelection(1, 1, SelectionType.REPLACE);
+            }
+        }
 
-    var fw = 3500;
-    var fh = 5250;
-    var padding = 450;
-    var minH=fh-(padding*2);
-    var minW=fw-(padding*2);
+        var crop = app.activeDocument.selection.bounds.join("||").split("||");
+        return crop;
+    }
 
     function makeSelection(){
         try {
@@ -23,42 +28,102 @@ app.displayDialogs = DialogModes.NO;
         }
         return;
     }
+    //var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\In");
+    var outFolder = Folder("C:\\Users\\KevinNoseworthy\\Desktop\\New folder\\out");
     
-    try {
+    var fw = 3500;
+    var fh = 5250;
+    var padding = 450;
+    var minH=fh-(padding*2);
+    var minW=fw-(padding*2);
+    var doc = app.activeDocument;
+    var w = parseFloat(doc.width);
+    var h = parseFloat(doc.height);
+    
+    
+     var als = doc.artLayers;
+            for (var ii = 0; ii < als.length; ii++) {
+                var al = als[ii];
+                al.visible = true;
+                if (al.isBackgroundLayer) {
+                    al.isBackgroundLayer = false;
+                }
+                if (al.name.toUpperCase() != "LAYER 1" && al.name.toUpperCase() != "SHADOW") {
+                    al.remove();
+                }
+            }
+            doc.resizeCanvas(w + padding * 2 + "px", h + padding * 2 + "px", AnchorPosition.MIDDLECENTER);
 
-        var als = app.activeDocument.artLayers;
-        for (var ii = 0; ii < als.length; ii++) {
-            var al = als[ii];
-            al.isBackgroundLayer = false;
-            al.visible = true;
-        }
-        app.activeDocument.activeLayer = als[als.length - 1];
-        app.activeDocument.flatten();
-    } catch (e) {
-        alert('flatten failed');
-    }
-    makeSelection();
-    w = app.activeDocument.width;
-    h = app.activeDocument.height;
-    var crop = app.activeDocument.selection.bounds.join(",").split(",");
-    var ratio = minH/(parseFloat(crop[3].replace("px",""))-parseFloat(crop[1].replace("px","")));
-    
-    var cx=(parseFloat(crop[0].replace("px",""))-padding)*ratio, 
-    cy=(parseFloat(crop[1].replace("px",""))-padding)*ratio,
-    cw=(parseFloat(crop[2].replace("px",""))+padding)*ratio, 
-    ch=(parseFloat(crop[3].replace("px",""))+padding)*ratio; 
-    
-    var newCX = cx-((fw-(cw-cx))/2);
-    var newCW = cw+((fw-(cw-cx))/2);
-    var newCY = cy-((fh-(ch-cy))/2);
-    var newCH = ch+((fh-(ch-cy))/2);
-    
-    app.activeDocument.selection.deselect();
-    
-    var newH = Math.round(h*ratio*10000)/10000;
-    alert(newH);
-    app.activeDocument.resizeImage(null, newH + "px");                
-    var bounds = [newCX+" px",newCY+" px",newCW+" px",newCH+" px"];
-    
-    app.activeDocument.crop(bounds);
+    var crop = getCropDimensions();
+            var ratio, rRatio;
+            var objWidth = parseFloat(crop[2].replace("px", "")) - parseFloat(crop[0].replace("px", ""));
+            var objHeight = parseFloat(crop[3].replace("px", "")) - parseFloat(crop[1].replace("px", ""));
+
+            var wRatio = minW / objWidth;
+            var hRatio = minH / objHeight;
+
+            if (wRatio < hRatio) {
+                ratio = minW / objWidth;
+            } else {
+                ratio = minH / objHeight;
+            }
+            doc.resizeImage(w * ratio + "px");
+            //Get New dimensions to validate
+            var rCrop = getCropDimensions();
+            var rObjHeight = parseFloat(rCrop[3].replace("px", "")) - parseFloat(rCrop[1].replace("px", ""));
+            var rObjWidth = parseFloat(rCrop[2].replace("px", "")) - parseFloat(rCrop[0].replace("px", ""));
+            if (rObjHeight > minH) {
+                rRatio = minH / rObjHeight;
+                doc.resizeImage(null, h * ratio + "px");
+            }
+            if (rObjWidth > minW) {
+                rRatio = minW / rObjWidth;
+                doc.resizeImage(w * rRatio + "px");
+            }
+             var cropc = getCropDimensions();
+            var nCrop = [
+                parseFloat(cropc[0].replace("px", "")) - padding + " px",
+                parseFloat(cropc[1].replace("px", "")) - padding + " px",
+                parseFloat(cropc[2].replace("px", "")) + padding + " px",
+                parseFloat(cropc[3].replace("px", "")) + padding + " px",
+            ];
+            doc.selection.deselect();
+            
+            doc.crop(nCrop);
+            doc.resizeCanvas(fw, fh, AnchorPosition.MIDDLECENTER);
+
+            var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
+            exportOptions = new ExportOptionsSaveForWeb();
+            exportOptions.format = SaveDocumentType.PNG;
+            exportOptions.PNG8 = false; // false = PNG-24
+            exportOptions.transparency = true; // true = transparent
+            exportOptions.interlaced = false; // true = interlacing on
+            exportOptions.includeProfile = true; // false = don't embedd ICC profile
+            app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions, Extension.LOWERCASE);
+
+            var artLayers = doc.artLayers;
+            var fillLayer = artLayers.add();
+            fillLayer.name = "Fill";
+            doc.selection.selectAll();
+            var colorRef = new SolidColor();
+            colorRef.cmyk.cyan = "8";
+            colorRef.cmyk.magenta = "6";
+            colorRef.cmyk.yellow = "6";
+            colorRef.cmyk.black = "0";
+            doc.selection.fill(colorRef);
+            fillLayer.move(artLayers[artLayers.length - 1], ElementPlacement.PLACEAFTER);
+            doc.mergeVisibleLayers();
+            doc.selection.deselect();
+
+
+
+            var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
+            var jpgSave = new JPEGSaveOptions();
+            jpgSave.embedColorProfile = true;
+            jpgSave.formatOptions = FormatOptions.STANDARDBASELINE;
+            jpgSave.matte = MatteType.NONE;
+            jpgSave.quality = 12;
+            app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
+
+
     
