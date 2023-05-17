@@ -1,5 +1,5 @@
 
-function cdnTire3500x5250Closeup(){
+function cdnTire3500x5250SquareJpgPng(){
     
     var fw = 3500;
     var fh = 5250;
