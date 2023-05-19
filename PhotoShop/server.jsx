@@ -25,7 +25,7 @@ try {
      }
      try 
      {
-        cdnTire3500jpgBkgrd();
+        cdnTire3500jpgPngBkgrd();
     }
          catch(e) {
             tmpF.writeln("CDN Tire Jpgs / PNG");

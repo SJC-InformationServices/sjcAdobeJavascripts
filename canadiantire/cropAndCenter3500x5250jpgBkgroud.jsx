@@ -1,4 +1,4 @@
-function cdnTire3500jpgBkgrd() {
+function cdnTire3500jpgPngBkgrd() {
 
     function getCropDimensions() {
         for (var y = 0; y < app.activeDocument.pathItems.length; y++) {
@@ -17,8 +17,8 @@ function cdnTire3500jpgBkgrd() {
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 
-    var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\In");
-    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\OUT");
+    var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg_cc\\In");
+    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg_cc\\OUT");
     /*var inFolder = Folder.selectDialog("Select Source Folder");
     var outFolder = Folder.selectDialog("Select Out Folder");*/
 
