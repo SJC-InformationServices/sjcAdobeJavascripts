@@ -88,7 +88,9 @@ function cdnTire3500x5250SquareJpgPng(){
             app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions, Extension.LOWERCASE);} catch( e ){
                 
             }
-
+            app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+            
+            f.remove();
 
         }
         catch (e)
