@@ -33,7 +33,7 @@ function getCropDimensions() {
     
     var fw = 3500;
     var fh = 5250;
-    var padding = 450;
+    var padding = 150;
     var minH=fh-(padding*2);
     var minW=fw-(padding*2);
     var doc = app.activeDocument;
