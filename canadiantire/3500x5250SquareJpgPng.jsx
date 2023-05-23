@@ -4,7 +4,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
     var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
     var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
     var dateTime = cDate + ' ' + cTime;
-
+    log.writeln("Start CDN Tire JPG PNG: " + dateTime);
     // Set some variables for the image size and padding
     var fw = 3500;
     var fh = 5250;
@@ -39,7 +39,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
 
     // Get all files in the input folder that match the specified file types
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-    log.writeln("Start: " + dateTime);
+    
     log.writeln("TotalFiles: " + files.length);
 
     // Loop over all files in the input folder
