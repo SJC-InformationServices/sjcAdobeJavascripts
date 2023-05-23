@@ -38,6 +38,7 @@ try {
     }
          catch(e) {
             tmpF.writeln("CDN Tire Resize PNG / JPGS Only");
+            tmpF.writeln("Failed to Run");
             tmpF.writeln(e.message);
      }       
              
