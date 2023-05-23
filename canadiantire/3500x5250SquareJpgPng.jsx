@@ -3,6 +3,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
 var dateTime = cDate + ' ' + cTime;
+log.writeln("Start: " + dateTime);
 
     var fw = 3500;
     var fh = 5250;
@@ -37,7 +38,7 @@ var dateTime = cDate + ' ' + cTime;
 
     }
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-    log.writeln("Start: " + dateTime);
+    
     log.writeln("TotalFiles: " + files.length);
     for (var i = 0; i < files.length; i++) {
         try {
@@ -48,6 +49,7 @@ var dateTime = cDate + ' ' + cTime;
             var doc = app.activeDocument;
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
+            
             var als = doc.artLayers;
 
             for (var ii = 0; ii < als.length; ii++) {
