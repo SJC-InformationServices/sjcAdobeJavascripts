@@ -3,7 +3,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
 var dateTime = cDate + ' ' + cTime;
-log.writeln("Start: " + dateTime);
+log.writeln("Start CDNTIREJPGPNG: " + dateTime);
 
     var fw = 3500;
     var fh = 5250;
@@ -47,6 +47,7 @@ log.writeln("Start: " + dateTime);
             f.copy(outFolder + "/" + f.name);
             app.open(f);
             var doc = app.activeDocument;
+            
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
             
@@ -62,7 +63,7 @@ log.writeln("Start: " + dateTime);
             try {
 
 
-                var nf = File(outFolder + "/" + app.activeDocument.name.split(".")[0] + ".jpg");
+                var nf = File(outFolder + "/" + f.name.split(".")[0] + ".jpg");
                 var jpgSave = new JPEGSaveOptions();
                 jpgSave.embedColorProfile = true;
                 jpgSave.formatOptions = FormatOptions.STANDARDBASELINE;
@@ -86,7 +87,7 @@ log.writeln("Start: " + dateTime);
                     }
                 }
 
-                var nfpng = File(outFolder + "/" + app.activeDocument.name.split(".")[0] + ".png");
+                var nfpng = File(outFolder + "/" + f.name.split(".")[0] + ".png");
                 exportOptions = new ExportOptionsSaveForWeb();
                 exportOptions.format = SaveDocumentType.PNG;
                 exportOptions.PNG8 = false; // false = PNG-24
