@@ -18,7 +18,7 @@ var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog-"+cDate+
 try {
     try 
      {
-        convertToSMTEps();
+        convertToSMTEps(tmpF);
     }
          catch(e) {
             tmpF.writeln("SMT");
@@ -26,7 +26,7 @@ try {
      }
      try 
      {
-        cdnTire3500jpgPngBkgrd();
+        cdnTire3500jpgPngBkgrd(tmpF);
     }
          catch(e) {
             tmpF.writeln("CDN Tire Jpgs / PNG");
@@ -34,7 +34,7 @@ try {
      }
      try 
      {
-         cdnTire3500x5250SquareJpgPng();
+        cdnTire3500x5250SquareJpgPng(tmpF);
     }
          catch(e) {
             tmpF.writeln("CDN Tire Resize PNG / JPGS");

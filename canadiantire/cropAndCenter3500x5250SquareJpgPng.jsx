@@ -1,4 +1,8 @@
-function cdnTire3500x5250SquareJpgPng() {
+function cdnTire3500x5250SquareJpgPng(log) {
+    var current = new Date();
+var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+var dateTime = cDate + ' ' + cTime;
 
     var fw = 3500;
     var fh = 5250;
@@ -33,7 +37,8 @@ function cdnTire3500x5250SquareJpgPng() {
 
     }
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-
+    log.writeln("Start: " + dateTime);
+    log.writeln("TotalFiles: " + files.length);
     for (var i = 0; i < files.length; i++) {
         try {
 
@@ -63,7 +68,9 @@ function cdnTire3500x5250SquareJpgPng() {
                 jpgSave.quality = 12;
                 app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
             } catch (e) {
-
+                app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                log.writeln("FailedJPG: " + e.message);
+                log.writeln("FailedJPG: " + f.name);
             }
             try {
                 removeLayers(doc);
@@ -86,17 +93,26 @@ function cdnTire3500x5250SquareJpgPng() {
                 exportOptions.includeProfile = true; // false = don't embedd ICC profile
                 app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions, Extension.LOWERCASE);
             } catch (e) {
-
+                app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                log.writeln("FailedPNG: " + e.message);
+                log.writeln("FailedPNG: " + f.name);
             }
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 
             f.remove();
 
         } catch (e) {
-
+            
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+            log.writeln("FailedOpen: " + f.name);
 
         }
     }
+    var dcurrent = new Date();
+var dcDate = dcurrent.getFullYear() + '-' + (dcurrent.getMonth() + 1) + '-' + dcurrent.getDate();
+var dcTime = dcurrent.getHours() + ":" + dcurrent.getMinutes() + ":" + dcurrent.getSeconds();
+var ddateTime = dcDate + ' ' + dcTime;
+
+    log.writeln("End: " + ddateTime);
     return true;
 }
