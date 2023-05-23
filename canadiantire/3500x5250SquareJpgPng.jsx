@@ -45,8 +45,13 @@ function cdnTire3500x5250SquareJpgPng(log) {
     // Loop over all files in the input folder
     for (var i = 0; i < files.length; i++) {
         try {
-            f = files[i];
-            f.copy(outFolder + "/" + f.name);
+            try{
+                f = files[i];
+                alert(f.fullName)
+                f.copy(outFolder + "/" + f.name);
+                } catch(e){
+                    log.writeln("Copy File Failed "+ f.fullName);
+                }
             app.open(f);
             var doc = app.activeDocument;
             var w = parseFloat(doc.width);

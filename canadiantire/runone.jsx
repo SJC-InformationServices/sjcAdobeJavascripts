@@ -43,14 +43,20 @@ var log = File("C:\\Users\\KevinNoseworthy\\OneDrive - St Joseph Communications,
     
     // Get all files in the input folder that match the specified file types
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-    alert(files.length);
+    
     log.writeln("TotalFiles: " + files.length);
 
     // Loop over all files in the input folder
     for (var i = 0; i < files.length; i++) {
         try {
+            
+            try{
             f = files[i];
+            alert(f.fullName)
             f.copy(outFolder + "/" + f.name);
+            } catch(e){
+                log.writeln("Copy File Failed "+ f.fullName);
+            }
             app.open(f);
             var doc = app.activeDocument;
             var w = parseFloat(doc.width);
