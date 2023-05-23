@@ -35,6 +35,7 @@ try {
      try 
      {
         cdnTire3500x5250SquareJpgPng(tmpF);
+        alert(typeof cdnTire3500x5250SquareJpgPng);
     }
          catch(e) {
             tmpF.writeln("CDN Tire Resize PNG / JPGS Only");
