@@ -12,7 +12,7 @@ log.writeln("Start: " + dateTime);
     var minW = fw - (padding * 2);
 
     var inFolder = Folder("//10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg/In");
-    var outFolder = Folder("//10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg/OUT");
+    var outFolder = Folder("//10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg/Out");
     /*var inFolder = Folder.selectDialog("Select Source Folder");
     var outFolder = Folder.selectDialog("Select Out Folder");*/
 
