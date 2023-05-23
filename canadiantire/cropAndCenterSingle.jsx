@@ -1,7 +1,33 @@
 #target "photoshop";
 app.displayDialogs = DialogModes.NO;
 
+function removeLayers(layerSet,action="remove") {
+    // loop over all layers in the layer set
+   
+        for (var i = layerSet.layers.length - 1; i >= 0; i--) {
+            // get a reference to the current layer
+            var currentLayer = layerSet.layers[i];
+ 
+            // check if the current layer is a layer group
+            if (currentLayer.typename === "LayerSet") {
+                // if it is, call this function recursively to loop over its layers
+                removeLayers(currentLayer);
+            } else {
+                // otherwise, check if the current layer is not named "Layer 1" or if it is the background layer
+                if (currentLayer.name !== "Layer 1" || currentLayer.isBackgroundLayer) {
+                    // if it is, remove it
+                    if(action === "remove"){
+                        currentLayer.remove();
+                    }else{
+                        currentLayer.visible = true;
+                    }
+                }
+            }
+        }
+    
+}
 function getCropDimensions() {
+    var dime={};
         for (var y = 0; y < app.activeDocument.pathItems.length; y++) {
             p = app.activeDocument.pathItems[y];
             if (p.name == "Path 1") {
@@ -10,7 +36,13 @@ function getCropDimensions() {
         }
 
         var crop = app.activeDocument.selection.bounds.join("||").split("||");
-        return crop;
+        dime.cropX=parseFloat(crop[0]);
+        dime.cropY=parseFloat(crop[1]);
+        dime.cropEndX=parseFloat(crop[2]);
+        dime.cropEndY=parseFloat(crop[3]);
+        dime.cropWidth=dime.cropEndX-dime.cropX;
+        dime.cropHeight=dime.cropEndY-dime.cropY;
+        return dime;
     }
 
     function makeSelection(){
@@ -41,19 +73,12 @@ function getCropDimensions() {
     var h = parseFloat(doc.height);
     
     
-     var als = doc.artLayers;
-            for (var ii = 0; ii < als.length; ii++) {
-                var al = als[ii];
-                al.visible = true;
-                al.isBackgroundLayer = false;
-                if (al.name.toUpperCase() != "LAYER 1" && al.name.toUpperCase() != "SHADOW") {
-                    
-                    al.remove();
-                }
-            }
-            doc.resizeCanvas(w + padding * 2 + "px", h + padding * 2 + "px", AnchorPosition.MIDDLECENTER);
+     //var als = doc.layers;
+            removeLayers(doc,"visible");
+            //doc.resizeCanvas(w + padding * 2 + "px", h + padding * 2 + "px", AnchorPosition.MIDDLECENTER);
 
     var crop = getCropDimensions();
+    /*
             var ratio, rRatio;
             var objWidth = parseFloat(crop[2].replace("px", "")) - parseFloat(crop[0].replace("px", ""));
             var objHeight = parseFloat(crop[3].replace("px", "")) - parseFloat(crop[1].replace("px", ""));
@@ -101,7 +126,7 @@ function getCropDimensions() {
             app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions, Extension.LOWERCASE);
 
             try{
-            var artLayers = doc.artLayers;
+            var artLayers = doc.layers;
             var fillLayer = artLayers.add();
             fillLayer.name = "Fill";
             doc.selection.selectAll();
@@ -123,8 +148,8 @@ function getCropDimensions() {
             jpgSave.quality = 12;
             app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
             } catch( e ){
-                alert(e.mesage);
-            }
+                alert(e.message);
+            }*/
 
 
     

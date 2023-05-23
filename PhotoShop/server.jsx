@@ -22,6 +22,7 @@ try {
     }
          catch(e) {
             tmpF.writeln("SMT");
+            tmpF.writeln(e.message);
      }
      try 
      {
@@ -29,6 +30,7 @@ try {
     }
          catch(e) {
             tmpF.writeln("CDN Tire Jpgs / PNG");
+            tmpF.writeln(e.message);
      }
      try 
      {
@@ -36,6 +38,7 @@ try {
     }
          catch(e) {
             tmpF.writeln("CDN Tire Resize PNG / JPGS");
+            tmpF.writeln(e.message);
      }       
              
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
