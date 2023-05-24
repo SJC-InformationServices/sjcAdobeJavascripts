@@ -4,7 +4,7 @@ app.displayDialogs = DialogModes.NO;
 #include "E:\\repo\\sjcAdobeJavascripts\\sobeys\\convertToSMTEps.jsx";
 //#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250png.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\3500x5250SquareJpgPng.jsx";
-//#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250jpgBkgroud.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250jpgBkgroud.jsx";
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
@@ -24,14 +24,14 @@ try {
             tmpF.writeln("SMT");
             tmpF.writeln(e.message);
      }
-    /* try 
+     try 
      {
         cdnTire3500jpgPngBkgrd(tmpF);
     }
          catch(e) {
             tmpF.writeln("CDN Tire Jpgs / PNG");
             tmpF.writeln(e.message);
-     }*/
+     }
      try 
      {
         cdnTire3500x5250SquareJpgPng(tmpF);        
