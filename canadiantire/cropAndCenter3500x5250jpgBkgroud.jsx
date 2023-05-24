@@ -151,7 +151,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                     if (p.name == "Path 1") {
                         p.makeSelection(1, 1, SelectionType.REPLACE);
                         doc.selection.invert();
-                        doc.selection.clear();
+                        
                         try {
                             doc.selection.clear();
                         } catch (e) {
