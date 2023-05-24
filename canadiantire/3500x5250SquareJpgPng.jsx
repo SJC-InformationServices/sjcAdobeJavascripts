@@ -50,8 +50,9 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 
                 f.copy(outFolder + "\\" + f.name);
                 } catch(e){
-                    alert(e.message);
+                    
                     log.writeln("Copy File Failed "+ f.fullName);
+                    continue;
                 }
             
             try{    app.open(f);
@@ -68,8 +69,8 @@ function cdnTire3500x5250SquareJpgPng(log) {
             }
         }catch(e){
             log.writeln("Failed to Open "+ f.fullName);
-            alert(e.message);
-            continue
+            
+            continue;
         }
             // Resize the image to the specified dimensions
             doc.resizeImage(fw + "px", fh + "px");
