@@ -52,7 +52,8 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 } catch(e){
                     log.writeln("Copy File Failed "+ f.fullName);
                 }
-            app.open(f);
+            
+            try{    app.open(f);
             var doc = app.activeDocument;
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
@@ -64,7 +65,10 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 al.isBackgroundLayer = false;
                 al.visible = true;
             }
-
+        }catch(e){
+            log.writeln("Failed to Open "+ f.fullName);
+            alert(e.message);
+        }
             // Resize the image to the specified dimensions
             doc.resizeImage(fw + "px", fh + "px");
 
