@@ -14,7 +14,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
 
     // Set the input and output folders
     var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\In");
-    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\OUT");
+    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\Out");
 
     // Function to remove layers from a layer set
     function removeLayers(layerSet) {
