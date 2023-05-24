@@ -13,8 +13,8 @@ function cdnTire3500x5250SquareJpgPng(log) {
     var minW = fw - (padding * 2);
 
     // Set the input and output folders
-    var inFolder = Folder("//10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg/In");
-    var outFolder = Folder("//10.3.0.39/Canadian Tire/hotfolder/3500x5250_png-jpg/OUT");
+    var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\In");
+    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\OUT");
 
     // Function to remove layers from a layer set
     function removeLayers(layerSet) {
@@ -48,7 +48,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
             try{
                 f = files[i];
                 alert(f.fullName)
-                f.copy(outFolder + "/" + f.name);
+                f.copy(outFolder + "\\" + f.name);
                 } catch(e){
                     log.writeln("Copy File Failed "+ f.fullName);
                 }
@@ -70,7 +70,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
 
             try {
                 // Save the document as a JPEG file with the specified options
-                var nf = File(outFolder + "/" + app.activeDocument.name.split(".")[0] + ".jpg");
+                var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
                 var jpgSave = new JPEGSaveOptions();
                 jpgSave.embedColorProfile = true;
                 jpgSave.formatOptions = FormatOptions.STANDARDBASELINE;
@@ -98,7 +98,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 }
 
                 // Save the document as a PNG file with the specified options
-                var nfpng = File(outFolder + "/" + app.activeDocument.name.split(".")[0] + ".png");
+                var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
                 exportOptions = new ExportOptionsSaveForWeb();
                 exportOptions.format = SaveDocumentType.PNG;
                 exportOptions.PNG8 = false; // false = PNG-24
