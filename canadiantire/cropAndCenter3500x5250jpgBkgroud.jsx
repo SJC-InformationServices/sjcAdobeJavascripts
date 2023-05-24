@@ -1,16 +1,48 @@
 function cdnTire3500jpgPngBkgrd() {
 
-    function getCropDimensions() {
-        for (var y = 0; y < app.activeDocument.pathItems.length; y++) {
-            p = app.activeDocument.pathItems[y];
-            if (p.name == "Path 1") {
-                p.makeSelection(1, 1, SelectionType.REPLACE);
+  
+
+function removeLayers(layerSet) {
+    // loop over all layers in the layer set
+
+    for (var i = layerSet.layers.length - 1; i >= 0; i--) {
+        // get a reference to the current layer
+        var currentLayer = layerSet.layers[i];
+
+        // check if the current layer is a layer group
+        if (currentLayer.typename === "LayerSet") {
+            // if it is, call this function recursively to loop over its layers
+            removeLayers(currentLayer);
+        } else {
+            // otherwise, check if the current layer is not named "Layer 1" or if it is the background layer
+            if (currentLayer.name !== "Layer 1" || currentLayer.isBackgroundLayer) {
+                // if it is, remove it
+                currentLayer.remove();
             }
         }
-
-        var crop = app.activeDocument.selection.bounds.join("||").split("||");
-        return crop;
     }
+
+}
+
+function getCropDimensions() {
+    var dime = {};
+    for (var y = 0; y < app.activeDocument.pathItems.length; y++) {
+        p = app.activeDocument.pathItems[y];
+        if (p.name == "Path 1") {
+            p.makeSelection(1, 1, SelectionType.REPLACE);
+        }
+    }
+
+    var crop = app.activeDocument.selection.bounds.join("||").split("||");
+    dime.cropX = parseFloat(crop[0]);
+    dime.cropY = parseFloat(crop[1]);
+    dime.cropEndX = parseFloat(crop[2]);
+    dime.cropEndY = parseFloat(crop[3]);
+    dime.cropWidth = dime.cropEndX - dime.cropX;
+    dime.cropHeight = dime.cropEndY - dime.cropY;
+    return dime;
+}
+
     var fw = 3500;
     var fh = 5250;
     var padding = 75;
@@ -27,26 +59,42 @@ function cdnTire3500jpgPngBkgrd() {
 
     for (var i = 0; i < files.length; i++) {
         try {
+
+             try{
             f = files[i];
             f.copy(outFolder + "\\" + f.name);
+             } catch(e){
+                    log.writeln("Copy File Failed "+ f.fullName);
+                    continue;
+                }
+
             app.open(f);
 
             var doc = app.activeDocument;
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
             
+            try{    app.open(f);
+            var doc = app.activeDocument;
+            var w = parseFloat(doc.width);
+            var h = parseFloat(doc.height);
             var als = doc.artLayers;
+
+            // Loop over all art layers and make them visible and not background layers
             for (var ii = 0; ii < als.length; ii++) {
                 var al = als[ii];
+                al.isBackgroundLayer = false;
                 al.visible = true;
-                if (al.isBackgroundLayer) {
-                    al.isBackgroundLayer = false;
-                }
-                if (al.name.toUpperCase() != "LAYER 1" && al.name.toUpperCase() != "SHADOW") {
-                    al.remove();
-                }
             }
-            doc.resizeCanvas(w + padding * 2 + "px", h + padding * 2 + "px", AnchorPosition.MIDDLECENTER);
+        }catch(e){
+            log.writeln("Failed to Open "+ f.fullName);
+            
+            continue
+        }
+        var getDim = getCropDimensions();
+
+            var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
+            doc.resizeImage(w * ratio + "px", h * ratio + "px");
 
             var crop = getCropDimensions();
             var ratio, rRatio;
@@ -62,91 +110,88 @@ function cdnTire3500jpgPngBkgrd() {
                 ratio = minH / objHeight;
             }
             doc.resizeImage(w * ratio + "px");
-            //Get New dimensions to validate
-            var rCrop = getCropDimensions();
-            var rObjHeight = parseFloat(rCrop[3].replace("px", "")) - parseFloat(rCrop[1].replace("px", ""));
-            var rObjWidth = parseFloat(rCrop[2].replace("px", "")) - parseFloat(rCrop[0].replace("px", ""));
-            if (rObjHeight > minH) {
-                rRatio = minH / rObjHeight;
-                doc.resizeImage(null, h * ratio + "px");
-            }
-            if (rObjWidth > minW) {
-                rRatio = minW / rObjWidth;
-                doc.resizeImage(w * rRatio + "px");
-            }
+            var getDimB = getCropDimensions();
 
-            /*
-            var cropb = getCropDimensions();
-
-            var nObjWidth = parseFloat(cropb[2].replace("px",""))-parseFloat(cropb[0].replace("px",""));
-            var nObjHeight = parseFloat(cropb[3].replace("px",""))-parseFloat(cropb[1].replace("px",""));
-
-            var nw = parseFloat(doc.width);
-            var nh = parseFloat(doc.height);
-            /*
-            var eW =(parseFloat(cropb[2].replace("px",""))+parseFloat(cropb[0].replace("px",""))+padding)-nw;
-            //Enough Height Canvas
-            var eH =(parseFloat(cropb[3].replace("px",""))+parseFloat(cropb[1].replace("px",""))+padding)-nh;
-
-            if(eW > 0 || eH > 0)
-            {
-            var resizeHeight = eH>0?nh+eH:nh;
-            var resizeWidth = eW>0?nw+eW:nw;
+            if (getDimB.cropWidth < getDimB.cropHeight) {
+                var newY=getDimB.cropY - padding + " px";
+                var newEndY=getDimB.cropEndY+padding+ " px";
             
-            doc.resizeCanvas(resizeWidth+"px",resizeHeight+"px",AnchorPosition.MIDDLELEFT);
+                var offSet = ((fw-padding*2)-getDimB.cropWidth)/2;
+            
+                var newX = getDimB.cropX-offSet+ " px";
+                var newEndX =getDimB.cropEndX+offSet+ " px";
+                var newC=[newY,newEndY,offSet,newX,newEndX];
+            } else {
+            
             }
-            */
-            var cropc = getCropDimensions();
-            var nCrop = [
-                parseFloat(cropc[0].replace("px", "")) - padding + " px",
-                parseFloat(cropc[1].replace("px", "")) - padding + " px",
-                parseFloat(cropc[2].replace("px", "")) + padding + " px",
-                parseFloat(cropc[3].replace("px", "")) + padding + " px",
-            ];
-            doc.selection.deselect();
-            //alert(cropc.join('\r\n')+"\r\n"+[doc.width,doc.height].join("\r\n")+"\r\n"+nCrop.join("\r\n"));
-            doc.crop(nCrop);
-            doc.resizeCanvas(fw, fh, AnchorPosition.MIDDLECENTER);
 
-            var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
-            exportOptions = new ExportOptionsSaveForWeb();
-            exportOptions.format = SaveDocumentType.PNG;
-            exportOptions.PNG8 = false; // false = PNG-24
-            exportOptions.transparency = true; // true = transparent
-            exportOptions.interlaced = false; // true = interlacing on
-            exportOptions.includeProfile = true; // false = don't embedd ICC profile
-            app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions, Extension.LOWERCASE);
+            doc.crop([
+                newX,
+                newY,
+                newEndX,
+                newEndY
+            ]);
 
-            var artLayers = doc.artLayers;
-            var fillLayer = artLayers.add();
-            fillLayer.name = "Fill";
-            doc.selection.selectAll();
-            var colorRef = new SolidColor();
-            colorRef.cmyk.cyan = "8";
-            colorRef.cmyk.magenta = "6";
-            colorRef.cmyk.yellow = "6";
-            colorRef.cmyk.black = "0";
-            doc.selection.fill(colorRef);
-            fillLayer.move(artLayers[artLayers.length - 1], ElementPlacement.PLACEAFTER);
-            doc.mergeVisibleLayers();
-            doc.selection.deselect();
+                try {
+                    // Save the document as a JPEG file with the specified options
+                    var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
+                    var jpgSave = new JPEGSaveOptions();
+                    jpgSave.embedColorProfile = true;
+                    jpgSave.formatOptions = FormatOptions.STANDARDBASELINE;
+                    jpgSave.matte = MatteType.NONE;
+                    jpgSave.quality = 12;
+                    app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
+                } catch (e) {
+                    app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                    log.writeln("FailedJPG: " + e.message);
+                    log.writeln("FailedJPG: " + f.name);
+                }
+                try {
+                    // Remove all layers from the document using the removeLayers function defined earlier
+                    removeLayers(doc);
+    
+                    // Loop over all path items and make a selection from Path 1, then invert and clear the selection
+                    for (var y = 0; y < doc.pathItems.length; y++) {
+                        var p = doc.pathItems[y];
+                        if (p.name == "Path 1") {
+                            p.makeSelection(1, 1, SelectionType.REPLACE);
+                            doc.selection.invert();
+                            doc.selection.clear();
+                        }
+                    }
+    
+                    // Save the document as a PNG file with the specified options
+                    var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
+                    exportOptions = new ExportOptionsSaveForWeb();
+                    exportOptions.format = SaveDocumentType.PNG;
+                    exportOptions.PNG8 = false; // false = PNG-24
+                    exportOptions.transparency = true; // true = transparent
+                    exportOptions.interlaced = false; // true = interlacing on
+                    exportOptions.includeProfile = true; // false = don't embedd ICC profile
+                    app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions, Extension.LOWERCASE);
+                } catch (e) {
+                    app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                    log.writeln("FailedPNG: " + e.message);
+                    log.writeln("FailedPNG: " + f.name);
+                }
+    
+                // Close the document without saving changes
+                app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+    
+                // Remove the original file from the input folder
+                f.remove();
 
-
-
-            var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
-            var jpgSave = new JPEGSaveOptions();
-            jpgSave.embedColorProfile = true;
-            jpgSave.formatOptions = FormatOptions.STANDARDBASELINE;
-            jpgSave.matte = MatteType.NONE;
-            jpgSave.quality = 12;
-            app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
-
-            f.remove();
         } catch (error) {
             //alert("Error:"+error.line+" "+error.message);
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 
         }
     }
+    var dcurrent = new Date();
+    var dcDate = dcurrent.getFullYear() + '-' + (dcurrent.getMonth() + 1) + '-' + dcurrent.getDate();
+    var dcTime = dcurrent.getHours() + ":" + dcurrent.getMinutes() + ":" + dcurrent.getSeconds();
+    var ddateTime = dcDate + ' ' + dcTime;
+
+    log.writeln("End: " + ddateTime);
     return true;
 }

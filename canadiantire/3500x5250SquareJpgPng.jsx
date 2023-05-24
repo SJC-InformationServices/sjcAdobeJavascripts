@@ -70,7 +70,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
         }catch(e){
             log.writeln("Failed to Open "+ f.fullName);
             
-            continue;
+            continue
         }
             // Resize the image to the specified dimensions
             doc.resizeImage(fw + "px", fh + "px");

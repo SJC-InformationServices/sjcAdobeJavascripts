@@ -1,7 +1,8 @@
 #target "photoshop";
 app.displayDialogs = DialogModes.NO;
 
-function removeLayers(layerSet,action="remove") {
+
+function removeLayers(layerSet) {
     // loop over all layers in the layer set
    
         for (var i = layerSet.layers.length - 1; i >= 0; i--) {
@@ -16,11 +17,7 @@ function removeLayers(layerSet,action="remove") {
                 // otherwise, check if the current layer is not named "Layer 1" or if it is the background layer
                 if (currentLayer.name !== "Layer 1" || currentLayer.isBackgroundLayer) {
                     // if it is, remove it
-                    if(action === "remove"){
-                        currentLayer.remove();
-                    }else{
-                        currentLayer.visible = true;
-                    }
+                    currentLayer.remove();
                 }
             }
         }
