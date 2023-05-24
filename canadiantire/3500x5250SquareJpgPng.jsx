@@ -39,39 +39,40 @@ function cdnTire3500x5250SquareJpgPng(log) {
 
     // Get all files in the input folder that match the specified file types
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-    
+
     log.writeln("TotalFiles: " + files.length);
 
     // Loop over all files in the input folder
     for (var i = 0; i < files.length; i++) {
         try {
-            try{
+            try {
                 f = files[i];
-                
-                f.copy(outFolder + "\\" + f.name);
-                } catch(e){
-                    
-                    log.writeln("Copy File Failed "+ f.fullName);
-                    continue;
-                }
-            
-            try{    app.open(f);
-            var doc = app.activeDocument;
-            var w = parseFloat(doc.width);
-            var h = parseFloat(doc.height);
-            var als = doc.artLayers;
 
-            // Loop over all art layers and make them visible and not background layers
-            for (var ii = 0; ii < als.length; ii++) {
-                var al = als[ii];
-                al.isBackgroundLayer = false;
-                al.visible = true;
+                f.copy(outFolder + "\\" + f.name);
+            } catch (e) {
+
+                log.writeln("Copy File Failed " + f.fullName);
+                continue;
             }
-        }catch(e){
-            log.writeln("Failed to Open "+ f.fullName);
-            
-            continue
-        }
+
+            try {
+                app.open(f);
+                var doc = app.activeDocument;
+                var w = parseFloat(doc.width);
+                var h = parseFloat(doc.height);
+                var als = doc.artLayers;
+
+                // Loop over all art layers and make them visible and not background layers
+                for (var ii = 0; ii < als.length; ii++) {
+                    var al = als[ii];
+                    al.isBackgroundLayer = false;
+                    al.visible = true;
+                }
+            } catch (e) {
+                log.writeln("Failed to Open " + f.fullName);
+
+                continue
+            }
             // Resize the image to the specified dimensions
             doc.resizeImage(fw + "px", fh + "px");
 
@@ -95,37 +96,39 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 removeLayers(doc);
 
                 // Loop over all path items and make a selection from Path 1, then invert and clear the selection
-                try{
-                for (var y = 0; y < doc.pathItems.length; y++) {
-                    var p = doc.pathItems[y];
-                    if (p.name == "Path 1") {
-                        p.makeSelection(1, 1, SelectionType.REPLACE);
-                        doc.selection.invert();
-                        try {doc.selection.clear();}catch(e){
-                            var idFl = charIDToTypeID( "Fl  " );
-                        var desc55 = new ActionDescriptor();
-                        var idUsng = charIDToTypeID( "Usng" );
-                        var idFlCn = charIDToTypeID( "FlCn" );
-                        var idClr = charIDToTypeID( "Clr " );
-                        desc55.putEnumerated( idUsng, idFlCn, idClr );
-                        var idClr = charIDToTypeID( "Clr " );
-                        var desc56 = new ActionDescriptor();
-                        var idGry = charIDToTypeID( "Gry " );
-                        desc56.putDouble( idGry, 49.799997 );
-                        var idGrsc = charIDToTypeID( "Grsc" );
-                        desc55.putObject( idClr, idGrsc, desc56 );
-                        var idOpct = charIDToTypeID( "Opct" );
-                        var idPrc = charIDToTypeID( "#Prc" );
-                        desc55.putUnitDouble( idOpct, idPrc, 100.000000 );
-                        var idMd = charIDToTypeID( "Md  " );
-                        var idBlnM = charIDToTypeID( "BlnM" );
-                        var idClar = charIDToTypeID( "Clar" );
-                        desc55.putEnumerated( idMd, idBlnM, idClar );
-                        executeAction( idFl, desc55, DialogModes.NO );
+                try {
+                    for (var y = 0; y < doc.pathItems.length; y++) {
+                        var p = doc.pathItems[y];
+                        if (p.name == "Path 1") {
+                            p.makeSelection(1, 1, SelectionType.REPLACE);
+                            doc.selection.invert();
+                            try {
+                                doc.selection.clear();
+                            } catch (e) {
+                                var idFl = charIDToTypeID("Fl  ");
+                                var desc55 = new ActionDescriptor();
+                                var idUsng = charIDToTypeID("Usng");
+                                var idFlCn = charIDToTypeID("FlCn");
+                                var idClr = charIDToTypeID("Clr ");
+                                desc55.putEnumerated(idUsng, idFlCn, idClr);
+                                var idClr = charIDToTypeID("Clr ");
+                                var desc56 = new ActionDescriptor();
+                                var idGry = charIDToTypeID("Gry ");
+                                desc56.putDouble(idGry, 49.799997);
+                                var idGrsc = charIDToTypeID("Grsc");
+                                desc55.putObject(idClr, idGrsc, desc56);
+                                var idOpct = charIDToTypeID("Opct");
+                                var idPrc = charIDToTypeID("#Prc");
+                                desc55.putUnitDouble(idOpct, idPrc, 100.000000);
+                                var idMd = charIDToTypeID("Md  ");
+                                var idBlnM = charIDToTypeID("BlnM");
+                                var idClar = charIDToTypeID("Clar");
+                                desc55.putEnumerated(idMd, idBlnM, idClar);
+                                executeAction(idFl, desc55, DialogModes.NO);
+                            }
                         }
                     }
-                }
-            } catch(e){}
+                } catch (e) {}
 
                 // Save the document as a PNG file with the specified options
                 var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");

@@ -18,7 +18,8 @@ function cdnTire3500jpgPngBkgrd(log) {
                     currentLayer.remove();
                 }
             }
-        }}
+        }
+    }
 
     function getCropDimensions() {
         var dime = {};
@@ -151,26 +152,29 @@ function cdnTire3500jpgPngBkgrd(log) {
                         p.makeSelection(1, 1, SelectionType.REPLACE);
                         doc.selection.invert();
                         doc.selection.clear();
-                        try {doc.selection.clear();}catch(e){var idFl = charIDToTypeID( "Fl  " );
-                        var desc55 = new ActionDescriptor();
-                        var idUsng = charIDToTypeID( "Usng" );
-                        var idFlCn = charIDToTypeID( "FlCn" );
-                        var idClr = charIDToTypeID( "Clr " );
-                        desc55.putEnumerated( idUsng, idFlCn, idClr );
-                        var idClr = charIDToTypeID( "Clr " );
-                        var desc56 = new ActionDescriptor();
-                        var idGry = charIDToTypeID( "Gry " );
-                        desc56.putDouble( idGry, 49.799997 );
-                        var idGrsc = charIDToTypeID( "Grsc" );
-                        desc55.putObject( idClr, idGrsc, desc56 );
-                        var idOpct = charIDToTypeID( "Opct" );
-                        var idPrc = charIDToTypeID( "#Prc" );
-                        desc55.putUnitDouble( idOpct, idPrc, 100.000000 );
-                        var idMd = charIDToTypeID( "Md  " );
-                        var idBlnM = charIDToTypeID( "BlnM" );
-                        var idClar = charIDToTypeID( "Clar" );
-                        desc55.putEnumerated( idMd, idBlnM, idClar );
-                        executeAction( idFl, desc55, DialogModes.NO );
+                        try {
+                            doc.selection.clear();
+                        } catch (e) {
+                            var idFl = charIDToTypeID("Fl  ");
+                            var desc55 = new ActionDescriptor();
+                            var idUsng = charIDToTypeID("Usng");
+                            var idFlCn = charIDToTypeID("FlCn");
+                            var idClr = charIDToTypeID("Clr ");
+                            desc55.putEnumerated(idUsng, idFlCn, idClr);
+                            var idClr = charIDToTypeID("Clr ");
+                            var desc56 = new ActionDescriptor();
+                            var idGry = charIDToTypeID("Gry ");
+                            desc56.putDouble(idGry, 49.799997);
+                            var idGrsc = charIDToTypeID("Grsc");
+                            desc55.putObject(idClr, idGrsc, desc56);
+                            var idOpct = charIDToTypeID("Opct");
+                            var idPrc = charIDToTypeID("#Prc");
+                            desc55.putUnitDouble(idOpct, idPrc, 100.000000);
+                            var idMd = charIDToTypeID("Md  ");
+                            var idBlnM = charIDToTypeID("BlnM");
+                            var idClar = charIDToTypeID("Clar");
+                            desc55.putEnumerated(idMd, idBlnM, idClar);
+                            executeAction(idFl, desc55, DialogModes.NO);
                         }
                     }
                 }
