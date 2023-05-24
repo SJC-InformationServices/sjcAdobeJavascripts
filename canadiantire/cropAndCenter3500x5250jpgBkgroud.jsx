@@ -47,9 +47,6 @@ function cdnTire3500jpgPngBkgrd(log) {
 
     var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg_cc\\In");
     var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg_cc\\OUT");
-    /*var inFolder = Folder.selectDialog("Select Source Folder");
-    var outFolder = Folder.selectDialog("Select Out Folder");*/
-
 
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
