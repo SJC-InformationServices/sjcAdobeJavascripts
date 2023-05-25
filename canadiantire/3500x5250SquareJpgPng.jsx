@@ -128,7 +128,10 @@ function cdnTire3500x5250SquareJpgPng(log) {
                             }
                         }
                     }
-                } catch (e) {}
+                } catch (e) {
+                    log.writeln("PNG Background Removal Failed: " + e.message);
+                    log.writeln("PNG Background Removal Failed: " + f.name);
+                }
 
                 // Save the document as a PNG file with the specified options
                 var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
