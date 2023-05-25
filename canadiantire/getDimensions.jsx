@@ -72,7 +72,15 @@ if (getDimB.cropWidth < getDimB.cropHeight) {
     var newEndX =getDimB.cropEndX+offSet+ " px";
     var newC=[newY,newEndY,offSet,newX,newEndX];
 } else {
+    
+    var newX = getDimB.cropX - padding + " px";
+    var newEndX = getDimB.cropEndX + padding + " px";
 
+    var offSet = ((fh - padding * 2) - getDimB.cropHeight) / 2;
+    var newY = getDimB.cropY - offSet + " px";
+    var newEndY = getDimB.cropEndY + offSet + " px";
+    
+    var newC = [newY, newEndY, offSet, newX, newEndX];
 }
 /*
 for(var i in getDimB){

@@ -52,6 +52,7 @@ function cdnTire3500jpgPngBkgrd(log) {
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
     for (var i = 0; i < files.length; i++) {
+        log.writeln("File " + f.fullName);
         try {
 
             try {
@@ -61,12 +62,6 @@ function cdnTire3500jpgPngBkgrd(log) {
                 log.writeln("Copy File Failed " + f.fullName);
                 continue;
             }
-
-            app.open(f);
-
-            var doc = app.activeDocument;
-            var w = parseFloat(doc.width);
-            var h = parseFloat(doc.height);
 
             try {
                 app.open(f);
@@ -82,7 +77,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                     al.visible = true;
                 }
             } catch (e) {
-                log.writeln("Failed to Open " + f.fullName);
+                log.writeln("Failed to Open - Make Layers Active" + f.fullName);
 
                 continue;
             }
@@ -91,20 +86,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
             doc.resizeImage(w * ratio + "px", h * ratio + "px");
 
-            var crop = getCropDimensions();
-            var ratio, rRatio;
-            var objWidth = parseFloat(crop[2].replace("px", "")) - parseFloat(crop[0].replace("px", ""));
-            var objHeight = parseFloat(crop[3].replace("px", "")) - parseFloat(crop[1].replace("px", ""));
 
-            var wRatio = minW / objWidth;
-            var hRatio = minH / objHeight;
-
-            if (wRatio < hRatio) {
-                ratio = minW / objWidth;
-            } else {
-                ratio = minH / objHeight;
-            }
-            doc.resizeImage(w * ratio + "px");
             var getDimB = getCropDimensions();
 
             if (getDimB.cropWidth < getDimB.cropHeight) {
@@ -117,7 +99,14 @@ function cdnTire3500jpgPngBkgrd(log) {
                 var newEndX = getDimB.cropEndX + offSet + " px";
                 var newC = [newY, newEndY, offSet, newX, newEndX];
             } else {
+                var newX = getDimB.cropX - padding + " px";
+                var newEndX = getDimB.cropEndX + padding + " px";
 
+                var offSet = ((fh - padding * 2) - getDimB.cropHeight) / 2;
+                var newY = getDimB.cropY - offSet + " px";
+                var newEndY = getDimB.cropEndY + offSet + " px";
+
+                var newC = [newY, newEndY, offSet, newX, newEndX];
             }
 
             doc.crop([
@@ -151,7 +140,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                     if (p.name == "Path 1") {
                         p.makeSelection(1, 1, SelectionType.REPLACE);
                         doc.selection.invert();
-                        
+
                         try {
                             doc.selection.clear();
                         } catch (e) {
