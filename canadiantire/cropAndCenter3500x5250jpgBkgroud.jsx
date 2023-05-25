@@ -142,7 +142,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                         doc.selection.invert();
 
                         try {
-                            doc.selection.clear();
+                            doc.selection.cut();
                         } catch (e) {
                             var idFl = charIDToTypeID("Fl  ");
                             var desc55 = new ActionDescriptor();

@@ -103,7 +103,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
                             p.makeSelection(1, 1, SelectionType.REPLACE);
                             doc.selection.invert();
                             try {
-                                doc.selection.clear();
+                                doc.selection.cut();
                             } catch (e) {
                                 var idFl = charIDToTypeID("Fl  ");
                                 var desc55 = new ActionDescriptor();
