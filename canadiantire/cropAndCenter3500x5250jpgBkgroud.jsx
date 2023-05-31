@@ -84,7 +84,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             var getDim = getCropDimensions();
 
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
-            doc.resizeImage(w * ratio + "px", h * ratio + "px");
+            doc.resizeImage(w * ratio + "px", h * ratio + "px",300,ResampleMethod.NONE);
 
 
             var getDimB = getCropDimensions();
@@ -115,7 +115,8 @@ function cdnTire3500jpgPngBkgrd(log) {
                 newEndX,
                 newEndY
             ]);
-
+            doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.NONE);
+            
             try {
                 // Save the document as a JPEG file with the specified options
                 var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
