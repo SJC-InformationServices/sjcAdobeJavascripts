@@ -13,7 +13,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                 removeLayers(currentLayer);
             } else {
                 // otherwise, check if the current layer is not named "Layer 1" or if it is the background layer
-                if (currentLayer.name !== "Layer 1" || currentLayer.isBackgroundLayer) {
+                if (currentLayer.name !== "Layer 1") {
                     // if it is, remove it
                     currentLayer.remove();
                 }
@@ -143,7 +143,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                         doc.selection.invert();
 
                         try {
-                            doc.selection.cut();
+                           // doc.selection.cut();
                         } catch (e) {
                             var idFl = charIDToTypeID("Fl  ");
                             var desc55 = new ActionDescriptor();
@@ -164,7 +164,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                             var idBlnM = charIDToTypeID("BlnM");
                             var idClar = charIDToTypeID("Clar");
                             desc55.putEnumerated(idMd, idBlnM, idClar);
-                            executeAction(idFl, desc55, DialogModes.NO);
+                           // executeAction(idFl, desc55, DialogModes.NO);
                         }
                     }
                 }
