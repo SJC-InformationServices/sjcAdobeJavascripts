@@ -74,7 +74,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 continue
             }
             // Resize the image to the specified dimensions
-            doc.resizeImage(fw + "px", fh + "px");
+            doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.NONE);
 
             try {
                 // Save the document as a JPEG file with the specified options
