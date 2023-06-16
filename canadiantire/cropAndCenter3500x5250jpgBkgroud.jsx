@@ -60,6 +60,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                 f.copy(outFolder + "\\" + f.name);
             } catch (e) {
                 log.writeln("Copy File Failed " + f.fullName);
+                log.writeln("Error:"+e.line+" "+e.message);
                 continue;
             }
 
@@ -69,6 +70,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                 
             } catch (e) {
                 log.writeln("Failed to Open" + f.fullName);
+                log.writeln("Error:"+e.line+" "+e.message);
 
                 continue;
             }
@@ -192,7 +194,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             f.remove();
 
         } catch (error) {
-            //alert("Error:"+error.line+" "+error.message);
+            log.writeln("Error:"+error.line+" "+error.message);
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 
         }
