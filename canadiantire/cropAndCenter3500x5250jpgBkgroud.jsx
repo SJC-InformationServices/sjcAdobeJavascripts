@@ -87,7 +87,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             var getDim = getCropDimensions();
 
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
-            doc.resizeImage(w * ratio + "px", h * ratio + "px",300,ResampleMethod.NONE);
+            doc.resizeImage(w * ratio + "px", h * ratio + "px",300,ResampleMethod.BICUBIC);
 
 
             var getDimB = getCropDimensions();
