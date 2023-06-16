@@ -66,9 +66,15 @@ function cdnTire3500jpgPngBkgrd(log) {
             try {
                 app.open(f);
                 var doc = app.activeDocument;
-                var w = parseFloat(doc.width);
-                var h = parseFloat(doc.height);
-                var als = doc.artLayers;
+                
+            } catch (e) {
+                log.writeln("Failed to Open" + f.fullName);
+
+                continue;
+            }
+            var w = parseFloat(doc.width);
+            var h = parseFloat(doc.height);
+            var als = doc.artLayers;
 
                 // Loop over all art layers and make them visible and not background layers
                 for (var ii = 0; ii < als.length; ii++) {
@@ -76,11 +82,6 @@ function cdnTire3500jpgPngBkgrd(log) {
                     al.isBackgroundLayer = false;
                     al.visible = true;
                 }
-            } catch (e) {
-                log.writeln("Failed to Open - Make Layers Active" + f.fullName);
-
-                continue;
-            }
             var getDim = getCropDimensions();
 
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
