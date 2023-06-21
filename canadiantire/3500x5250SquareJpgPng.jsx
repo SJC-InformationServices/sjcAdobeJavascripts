@@ -61,17 +61,16 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 var w = parseFloat(doc.width);
                 var h = parseFloat(doc.height);
                 var als = doc.artLayers;
-
-                // Loop over all art layers and make them visible and not background layers
-                for (var ii = 0; ii < als.length; ii++) {
-                    var al = als[ii];
-                    al.isBackgroundLayer = false;
-                    al.visible = true;
-                }
             } catch (e) {
                 log.writeln("Failed to Open " + f.fullName);
 
                 continue
+            }
+             // Loop over all art layers and make them visible and not background layers
+             for (var ii = 0; ii < als.length; ii++) {
+                var al = als[ii];
+                //al.isBackgroundLayer = false;
+                al.visible = true;
             }
             // Resize the image to the specified dimensions
             doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.NONE);
