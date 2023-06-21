@@ -60,23 +60,15 @@ function cdnTire3500jpgPngBkgrd(log) {
                 f.copy(outFolder + "\\" + f.name);
             } catch (e) {
                 log.writeln("Copy File Failed " + f.fullName);
-                log.writeln("Error:"+e.line+" "+e.message);
                 continue;
             }
 
             try {
                 app.open(f);
                 var doc = app.activeDocument;
-                
-            } catch (e) {
-                log.writeln("Failed to Open" + f.fullName);
-                log.writeln("Error:"+e.line+" "+e.message);
-
-                continue;
-            }
-            var w = parseFloat(doc.width);
-            var h = parseFloat(doc.height);
-            var als = doc.artLayers;
+                var w = parseFloat(doc.width);
+                var h = parseFloat(doc.height);
+                var als = doc.artLayers;
 
                 // Loop over all art layers and make them visible and not background layers
                 for (var ii = 0; ii < als.length; ii++) {
@@ -84,6 +76,11 @@ function cdnTire3500jpgPngBkgrd(log) {
                     al.isBackgroundLayer = false;
                     al.visible = true;
                 }
+            } catch (e) {
+                log.writeln("Failed to Open - Make Layers Active" + f.fullName);
+
+                continue;
+            }
             var getDim = getCropDimensions();
 
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
@@ -194,7 +191,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             f.remove();
 
         } catch (error) {
-            log.writeln("Error:"+error.line+" "+error.message);
+            //alert("Error:"+error.line+" "+error.message);
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 
         }
