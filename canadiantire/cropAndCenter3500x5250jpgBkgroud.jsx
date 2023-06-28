@@ -119,7 +119,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                 newEndX,
                 newEndY
             ]);
-            doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
+            //doc.resizeImage(fw + "px", fh + "px");
             
             try {
                 // Save the document as a JPEG file with the specified options
