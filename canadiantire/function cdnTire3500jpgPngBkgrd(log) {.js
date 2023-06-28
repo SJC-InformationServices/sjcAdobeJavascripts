@@ -42,7 +42,7 @@ function cdnTire3500jpgPngBkgrd(log) {
 
     var fw = 3500;
     var fh = 5250;
-    var padding = 75;
+    var padding = 150;
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 

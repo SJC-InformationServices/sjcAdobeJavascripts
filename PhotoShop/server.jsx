@@ -66,9 +66,8 @@ tmpF.close();
 
     }
 } catch (e){
-        tmpF.writeln($.getenv('sjcHotFolders'));
-         tmpF.writeln("Can't Parse Source File" + e.message);
-         
+    tmpF.writeln($.getenv('sjcHotFolders'));
+    tmpF.writeln("Can't Parse Source File" + e.message);     
 }
 var dcurrent = new Date();
 var dcDate = dcurrent.getFullYear() + '-' + (dcurrent.getMonth() + 1) + '-' + dcurrent.getDate();
