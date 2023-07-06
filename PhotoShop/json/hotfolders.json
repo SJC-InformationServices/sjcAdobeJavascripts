@@ -1115,6 +1115,7 @@
     "ID": 25,
     "Title": "Alpha800x800x300dpi_35pxPad",
     "source": "\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha800x800x72dpi_35px",
+    "dpi":72,
     "ratio": 1.0,
     "width": 730.0,
     "height": 730.0,
