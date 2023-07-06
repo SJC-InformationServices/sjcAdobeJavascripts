@@ -16,6 +16,7 @@ function hotFolder(properties) {
     this.AnchorPosition;
     this.export_for_web;
     this.logFile;
+    this.dpi;
     
 
     this.set = function (k, v) {
@@ -189,6 +190,10 @@ function hotFolder(properties) {
             {
                 doc.crop([0,0,doc.width,doc.height*this.ratio]);
             }
+            if(this.dpi==72)
+            {
+                doc.resizeImage(null,null,72);
+            }
             if (doc.width > doc.height) {
                 doc.resizeImage(this.width + "px");
                 if (doc.height > parseInt(this.height)) {
@@ -200,6 +205,7 @@ function hotFolder(properties) {
                     doc.resizeImage(this.width);
                 }
             }
+            
            
             doc.resizeCanvas(this.canvasWidth, this.canvasHeight, this.AnchorPosition);
         } catch (e) {
