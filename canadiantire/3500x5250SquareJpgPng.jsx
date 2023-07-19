@@ -74,7 +74,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 al.visible = true;
             }
             // Resize the image to the specified dimensions
-            doc.resizeImage(null, fh + "px");
+            doc.resizeImage(fh+"px", fh + "px");
             //doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
 
             try {
@@ -106,7 +106,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
                             try {
                                 //doc.selection.cut();
                             } catch (e) {
-                                var idFl = charIDToTypeID("Fl  ");
+                                /*var idFl = charIDToTypeID("Fl  ");
                                 var desc55 = new ActionDescriptor();
                                 var idUsng = charIDToTypeID("Usng");
                                 var idFlCn = charIDToTypeID("FlCn");
@@ -125,7 +125,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
                                 var idBlnM = charIDToTypeID("BlnM");
                                 var idClar = charIDToTypeID("Clar");
                                 desc55.putEnumerated(idMd, idBlnM, idClar);
-                               //executeAction(idFl, desc55, DialogModes.NO);
+                               //executeAction(idFl, desc55, DialogModes.NO);*/
                             }
                         }
                     }
