@@ -71,8 +71,8 @@ function getCropDimensions() {
     
     
      //var als = doc.layers;
-            removeLayers(doc,"visible");
-            //doc.resizeCanvas(w + padding * 2 + "px", h + padding * 2 + "px", AnchorPosition.MIDDLECENTER);
+    removeLayers(doc,"visible");
+    //doc.resizeCanvas(w + padding * 2 + "px", h + padding * 2 + "px", AnchorPosition.MIDDLECENTER);
 
     var crop = getCropDimensions();
     /*

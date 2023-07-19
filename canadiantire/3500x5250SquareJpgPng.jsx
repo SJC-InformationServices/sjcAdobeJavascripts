@@ -4,17 +4,8 @@ function cdnTire3500x5250SquareJpgPng(log) {
     var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
     var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
     var dateTime = cDate + ' ' + cTime;
-    log.writeln("Start CDN Tire JPG PNG: " + dateTime);
-    // Set some variables for the image size and padding
-    var fw = 3500;
-    var fh = 5250;
-    var padding = 150;
-    var minH = fh - (padding * 2);
-    var minW = fw - (padding * 2);
-
-    // Set the input and output folders
-    var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\In");
-    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\Out");
+    log.writeln("Start CDN Tire Square JPG PNG: " + dateTime);
+    
 
     // Function to remove layers from a layer set
     function removeLayers(layerSet) {
@@ -36,7 +27,16 @@ function cdnTire3500x5250SquareJpgPng(log) {
             }
         }
     }
+    // Set some variables for the image size and padding
+    var fw = 3500;
+    var fh = 5250;
+    var padding = 150;
+    var minH = fh - (padding * 2);
+    var minW = fw - (padding * 2);
 
+    // Set the input and output folders
+    var inFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\In");
+    var outFolder = Folder("\\\\10.3.0.39\\Canadian Tire\\hotfolder\\3500x5250_png-jpg\\Out");
     // Get all files in the input folder that match the specified file types
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
@@ -44,10 +44,11 @@ function cdnTire3500x5250SquareJpgPng(log) {
 
     // Loop over all files in the input folder
     for (var i = 0; i < files.length; i++) {
+        
         try {
             try {
                 f = files[i];
-
+                log.writeln("File " + f.fullName);
                 f.copy(outFolder + "\\" + f.name);
             } catch (e) {
 
@@ -64,7 +65,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
             } catch (e) {
                 log.writeln("Failed to Open " + f.fullName);
 
-                continue
+                continue;
             }
              // Loop over all art layers and make them visible and not background layers
              for (var ii = 0; ii < als.length; ii++) {
@@ -73,7 +74,8 @@ function cdnTire3500x5250SquareJpgPng(log) {
                 al.visible = true;
             }
             // Resize the image to the specified dimensions
-            doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
+            doc.resizeImage(null, fh + "px");
+            //doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
 
             try {
                 // Save the document as a JPEG file with the specified options

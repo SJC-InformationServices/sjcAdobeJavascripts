@@ -1,4 +1,10 @@
 function cdnTire3500jpgPngBkgrd(log) {
+    // Get the current date and time
+    var current = new Date();
+    var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+    var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+    var dateTime = cDate + ' ' + cTime;
+    log.writeln("Start CDN Tire Square JPG PNG: " + dateTime);
 
     function removeLayers(layerSet) {
         // loop over all layers in the layer set
@@ -52,11 +58,12 @@ function cdnTire3500jpgPngBkgrd(log) {
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
     for (var i = 0; i < files.length; i++) {
-        log.writeln("File " + f.fullName);
+        
         try {
 
             try {
                 f = files[i];
+                
                 f.copy(outFolder + "\\" + f.name);
             } catch (e) {
                 log.writeln("Copy File Failed " + f.fullName);
