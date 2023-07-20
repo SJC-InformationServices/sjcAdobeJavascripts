@@ -97,11 +97,13 @@ function cdnTire3500jpgPngBkgrd(log) {
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
             if (getDim.cropWidth > getDim.cropHeight) {
+                log.writeln("Resize BY: Width");
                 doc.resizeImage(w*ratio + "px");
                 if (doc.height > parseInt(fh)) {
                     doc.resizeImage(null, fh + "px")
                 }
             } else {
+                log.writeln("Resize By: Height");
                 doc.resizeImage(null, h * ratio + "px");
                 if (doc.width > parseInt(fw)) {
                     doc.resizeImage(fw+"px");
@@ -112,7 +114,7 @@ function cdnTire3500jpgPngBkgrd(log) {
 
 
             var getDimB = getCropDimensions();
-
+            log.writeln("NewCrop: " + getDimB.join("||"));
             if (getDimB.cropWidth < getDimB.cropHeight) {
                 var newY = getDimB.cropY - padding + " px";
                 var newEndY = getDimB.cropEndY + padding + " px";
@@ -141,7 +143,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             ]);
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
-            doc.resizeImage(fw + "px", fh + "px");
+            doc.resizeImage(null, fh + "px");
             
             try {
                 // Save the document as a JPEG file with the specified options
