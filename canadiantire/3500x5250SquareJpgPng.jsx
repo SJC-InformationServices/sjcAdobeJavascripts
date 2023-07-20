@@ -75,7 +75,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
             }
             // Resize the image to the specified dimensions
             doc.resizeImage(null, fh + "px");
-            //doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
+            doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
 
             try {
                 // Save the document as a JPEG file with the specified options
@@ -95,7 +95,7 @@ function cdnTire3500x5250SquareJpgPng(log) {
             try {
                 // Remove all layers from the document using the removeLayers function defined earlier
                 removeLayers(doc);
-                doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
+                
 
                 // Loop over all path items and make a selection from Path 1, then invert and clear the selection
                 try {
