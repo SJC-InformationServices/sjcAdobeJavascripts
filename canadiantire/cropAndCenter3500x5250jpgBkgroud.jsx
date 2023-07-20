@@ -122,7 +122,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                 var newY = getDimB.cropY - padding + " px";
                 var newEndY = getDimB.cropEndY + padding + " px";
 
-                var offSet = ((fw - padding * 2) - getDimB.cropWidth) / 2;
+                var offSet = (fw - getDimB.cropWidth) / 2;
 
                 var newX = getDimB.cropX - offSet + " px";
                 var newEndX = getDimB.cropEndX + offSet + " px";
@@ -131,7 +131,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                 var newX = getDimB.cropX - padding + " px";
                 var newEndX = getDimB.cropEndX + padding + " px";
 
-                var offSet = ((fh - padding * 2) - getDimB.cropHeight) / 2;
+                var offSet = (fh  - getDimB.cropHeight) / 2;
                 var newY = getDimB.cropY - offSet + " px";
                 var newEndY = getDimB.cropEndY + offSet + " px";
 
