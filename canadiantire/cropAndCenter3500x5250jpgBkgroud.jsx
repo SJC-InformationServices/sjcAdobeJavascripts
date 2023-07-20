@@ -96,7 +96,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
-            if (doc.width > doc.height) {
+            if (getDim.cropWidth > getDim.cropHeight) {
                 doc.resizeImage(w*ratio + "px");
                 if (doc.height > parseInt(fh)) {
                     doc.resizeImage(null, fh + "px")
@@ -141,7 +141,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             ]);
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
-            //doc.resizeImage(fw + "px", fh + "px",300,ResampleMethod.BICUBIC);
+            doc.resizeImage(fw + "px", fh + "px");
             
             try {
                 // Save the document as a JPEG file with the specified options
