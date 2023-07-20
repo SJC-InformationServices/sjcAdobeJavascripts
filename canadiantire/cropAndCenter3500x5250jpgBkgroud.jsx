@@ -114,7 +114,10 @@ function cdnTire3500jpgPngBkgrd(log) {
 
 
             var getDimB = getCropDimensions();
-            log.writeln("NewCrop: " + getDimB.join("||"));
+            for(var i in getDimB){
+                log.writeln("CropB " +i+":"+ getDimB[i]);
+            }
+            
             if (getDimB.cropWidth < getDimB.cropHeight) {
                 var newY = getDimB.cropY - padding + " px";
                 var newEndY = getDimB.cropEndY + padding + " px";
