@@ -96,7 +96,18 @@ function cdnTire3500jpgPngBkgrd(log) {
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
-            doc.resizeImage(null, h * ratio + "px");
+            if (doc.width > doc.height) {
+                doc.resizeImage(w*ratio + "px");
+                if (doc.height > parseInt(fh)) {
+                    doc.resizeImage(null, fh + "px")
+                }
+            } else {
+                doc.resizeImage(null, h * ratio + "px");
+                if (doc.width > parseInt(fw)) {
+                    doc.resizeImage(fw+"px");
+                }
+            }
+            //doc.resizeImage(null, h * ratio + "px");
             //doc.resizeImage(w * ratio + "px");
 
 
