@@ -146,7 +146,7 @@ function cdnTire3500jpgPngBkgrd(log) {
             ]);
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
-            doc.resizeImage(null, fh + "px");
+            doc.resizeImage(fh+"px", fh + "px");
             
             try {
                 // Save the document as a JPEG file with the specified options
