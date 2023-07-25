@@ -1,4 +1,33 @@
 [ {
+    "ID": 100,
+    "Title": "AlphaRGBJPG",
+    "source": "\\\\10.3.0.39\\Alpha Broder\\HotFolders\\AlphaRGBJPG",
+    "ratio": 1,
+    "width": 0,
+    "height": 0,
+    "canvasWidth": 0,
+    "canvasHeight": 0,
+    "filters": [{
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "jpg"
+    }, {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 1,
+        "Value": "tif"
+    }, {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 2,
+        "Value": "psd"
+    }],
+    
+    "format": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "jpg"
+    }
+    
+},{
     "@odata.etag": "\"12\"",
     "ItemInternalId": "1",
     "ID": 1,

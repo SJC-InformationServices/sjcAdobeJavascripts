@@ -167,7 +167,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                 removeLayers(doc);
 
                 // Loop over all path items and make a selection from Path 1, then invert and clear the selection
-                for (var y = 0; y < doc.pathItems.length; y++) {
+                /*for (var y = 0; y < doc.pathItems.length; y++) {
                     var p = doc.pathItems[y];
                     if (p.name == "Path 1") {
                         p.makeSelection(1, 1, SelectionType.REPLACE);
@@ -198,7 +198,7 @@ function cdnTire3500jpgPngBkgrd(log) {
                            // executeAction(idFl, desc55, DialogModes.NO);
                         }
                     }
-                }
+                }*/
 
                 // Save the document as a PNG file with the specified options
                 var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
