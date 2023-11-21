@@ -78,5 +78,5 @@ var ddateTime = dcDate + ' ' + dcTime;
     tmpF.close();
     var idquit = charIDToTypeID( "quit" );
 
-    executeAction( idquit, undefined, DialogModes.ALL );
+    //executeAction( idquit, undefined, DialogModes.ALL );
 /*executeAction(app.charIDToTypeID('quit'),undefined,DialogModes.No);*/
