@@ -6,7 +6,7 @@ try
 } catch {
     $appRef.DisplayDialogs = 3
 
-    $appRef.DoJavascript 'E:\repo\sjcAdobeJavascripts\PhotoShop\server.jsx'
+    $appRef.DoJavaScriptFile('E:\repo\sjcAdobeJavascripts\PhotoShop\server.jsx')
 }   
 
 $appRef.Quit()
