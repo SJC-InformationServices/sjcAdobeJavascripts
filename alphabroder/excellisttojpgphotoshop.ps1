@@ -285,7 +285,7 @@ try
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\TEAM 365\TT020\Lifestyle\TT020_EB_1459_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\TT020_EB_1459_CAT24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\TEAM 365\TT020\Lifestyle\TT020_EB_1503_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\TT020_EB_1503_SOC24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\TEAM 365\TT020\Lifestyle\TT020_EB_1516_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\TT020_EB_1516_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\PRIME LINE\Drinkware\BT010\_Lifestyle\BT010_378_select_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\BT010_378_select_CAT24.jpg';},
+@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\PRIME LINE\Drinkware\BT010\_Lifestyle\BT010_378_select_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\BT010_378_select_CAT24.jpg';}
    
     
     )
