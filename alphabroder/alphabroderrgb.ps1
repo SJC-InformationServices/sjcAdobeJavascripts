@@ -31,8 +31,10 @@ try
     }
     $fileExists = Test-Path -Path "$src"
     if ($fileExists)
-    {} else {
-    Move-Item -Path "$src" -Destination "$out"
+    {
+        
+    } else {
+        Move-Item -Path "$src" -Destination "$out"
     }
 
     
