@@ -7,7 +7,6 @@ try
     
     $files = @(    
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M15778\Lifestyle\M15778_51_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M15778_51_SOC24.jpg';},
-    @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M15779\Lifestyle\M15779_51_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M15779_51_CAT24.jpg';},
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M15779\Lifestyle\M15779_51_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M15779_51_SOC24.jpg';},
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M13193\Lifestyle\M13193_54_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M13193_54_CAT24.jpg';},
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M13193\Lifestyle\M13193_54_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M13193_54_SOC24.jpg';},
