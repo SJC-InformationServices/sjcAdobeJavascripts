@@ -32,7 +32,7 @@ try
     $fileExists = Test-Path -Path "$src"
     if ($fileExists)
     {
-        
+
     } else {
         Move-Item -Path "$src" -Destination "$out"
     }
@@ -42,6 +42,7 @@ try
 catch 
 {
     Write-Host "Caught an exception:"
+    Write-Host "Error on line $($_.InvocationInfo.ScriptLineNumber)"
     Write-Host "Exception Type: $($_.Exception.GetType().FullName)"
     Write-Host "Exception Message: $($_.Exception.Message)"
 }
