@@ -301,7 +301,11 @@ $dst
     $jpegSaveOptions.Quality = 12
 
     $docRef.SaveAs($dst, $jpegSaveOptions, $true)
-    
+    $srgbProfile = "sRGB IEC61966-2.1"
+    $intent = 2 # Relative colorimetric
+    $useBlackPointCompensation = $true
+    $docRef.ConvertProfile($srgbProfile, $intent, $useBlackPointCompensation, $true)
+
     # Do not save changes
     $doNotSaveChanges = 2 # Corresponds to 'Do not save changes' option
     $docRef.Close($doNotSaveChanges)
