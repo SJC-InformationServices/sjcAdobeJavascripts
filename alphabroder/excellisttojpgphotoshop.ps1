@@ -7,6 +7,8 @@ try
     
     $files = @(    
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M15778\Lifestyle\M15778_51_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M15778_51_SOC24.jpg';},
+    @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M15779\Lifestyle\M15779_51_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M15779_51_CAT24.jpg';},
+    @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M15779\Lifestyle\M15779_51_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M15779_51_SOC24.jpg';},
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M13193\Lifestyle\M13193_54_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M13193_54_CAT24.jpg';},
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M13193\Lifestyle\M13193_54_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M13193_54_SOC24.jpg';},
     @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\MARMOT\M13193\Lifestyle\M13193_54_M13224_54_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M13193_54_M13224_54_CAT24.jpg';},
@@ -152,12 +154,14 @@ try
 
     foreach($f in $files)
     {
-        $src = $f.src
+        $fn = $f.src
+        $n=Split-Path $fn -Leaf
         $dst = $f.dest
-
-$src
-$dst
-        $docRef = $appRef.Open($src)
+        $nn = $n.split(".")[0]
+        $tmp = "$env:TEMP\$n"
+        $nf = "$env:TEMP\$nn.jpg"
+    Copy-Item "$fn" "$tmp"
+    $docRef = $appRef.Open($tmp)
 
     $jpegSaveOptions = New-Object -ComObject Photoshop.JPEGSaveOptions
     $jpegSaveOptions.Quality = 12
@@ -171,6 +175,7 @@ $dst
     # Do not save changes
     $doNotSaveChanges = 2 # Corresponds to 'Do not save changes' option
     $docRef.Close($doNotSaveChanges)
+    Remove-Item $tmp
     }
 
     
