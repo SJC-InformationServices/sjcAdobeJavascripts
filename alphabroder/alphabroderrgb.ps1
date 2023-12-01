@@ -29,7 +29,7 @@ try
     $doNotSaveChanges = 2 # Corresponds to 'Do not save changes' option
     $docRef.Close($doNotSaveChanges)
     }
-    Remove-Item $src
+    Move-Item $src 
     
 }
 catch 
