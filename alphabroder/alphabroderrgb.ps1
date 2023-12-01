@@ -29,7 +29,12 @@ try
     $doNotSaveChanges = 2 # Corresponds to 'Do not save changes' option
     $docRef.Close($doNotSaveChanges)
     }
-    Move-Item $src 
+    $fileExists = Test-Path -Path "$src"
+    if ($fileExists)
+    {} else {
+    Move-Item -Path "$src" -Destination "$out"
+    }
+
     
 }
 catch 
