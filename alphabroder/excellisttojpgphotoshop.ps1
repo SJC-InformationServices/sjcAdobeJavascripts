@@ -160,6 +160,9 @@ try
         $nn = $n.split(".")[0]
         $tmp = "$env:TEMP\$n"
         $nf = "$env:TEMP\$nn.jpg"
+        $fn
+        $n
+        $tmp
     Copy-Item "$fn" "$tmp"
     $docRef = $appRef.Open($tmp)
 
