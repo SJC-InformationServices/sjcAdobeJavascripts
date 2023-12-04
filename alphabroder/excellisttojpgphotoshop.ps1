@@ -99,19 +99,20 @@ try
         $tmp
     Copy-Item "$fn" "$tmp"
     $docRef = $appRef.Open($tmp)
-    start-sleep -Seconds 5
+    start-sleep -Seconds 3
     $srgbProfile = "sRGB IEC61966-2.1"
     $intent = 2 # Relative colorimetric
     $useBlackPointCompensation = $true
     $docRef.ConvertProfile($srgbProfile, $intent, $useBlackPointCompensation, $true)
-    start-sleep -Seconds 5
-    $docRef.SaveAs($dst, $jpegSaveOptions, $true)
-    start-sleep -Seconds 5
+    start-sleep -Seconds 3
+    $docRef.SaveAs($nf, $jpegSaveOptions, $true)
+    start-sleep -Seconds 3
     # Do not save changes
     $doNotSaveChanges = 2 # Corresponds to 'Do not save changes' option
     $docRef.Close($doNotSaveChanges)
-    start-sleep -Seconds 5
-    Remove-Item $tmp
+    start-sleep -Seconds 3
+    
+    Move-Item -Path "$nf" -Destination "$dst"
     }
 
     
@@ -122,3 +123,4 @@ catch
     Write-Host "Exception Type: $($_.Exception.GetType().FullName)"
     Write-Host "Exception Message: $($_.Exception.Message)"
 }
+[System.Runtime.Interopservices.Marshal]::ReleaseComObject($appRef)
