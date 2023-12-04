@@ -1,11 +1,14 @@
 $appRef = New-Object -ComObject Photoshop.Application
 $in = "\\10.3.0.39\Alpha Broder\HotFolders\AlphaRGBJPG\In"
 $out = "\\10.3.0.39\Alpha Broder\HotFolders\AlphaRGBJPG\Out"
-$in
+
 try 
 {
     $appRef.DisplayDialogs = 3 # All dialogs off
-    $files = Get-ChildItem -Path "$in\*.*" -Include *.tif,*.jpg,*.jpeg
+    $jpegSaveOptions = New-Object -ComObject Photoshop.JPEGSaveOptions
+    $jpegSaveOptions.Quality = 12
+
+    $files = Get-ChildItem -Path "$in\*.*" -Include *.tif,*.jpg,*.jpeg,*.psd
 
     foreach($f in $files)
     {
@@ -15,9 +18,6 @@ try
         $nn = $name.split(".")[0]+".jpg"
         $dst = "$out\$nn"
         $docRef = $appRef.Open($src)
-
-    $jpegSaveOptions = New-Object -ComObject Photoshop.JPEGSaveOptions
-    $jpegSaveOptions.Quality = 12
 
     $docRef.SaveAs($dst, $jpegSaveOptions, $true)
     $srgbProfile = "sRGB IEC61966-2.1"
