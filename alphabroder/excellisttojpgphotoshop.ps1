@@ -8,21 +8,6 @@ try
     $jpegSaveOptions.Quality = 12
 
     $files = @(    
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75W_TZ_F_1169_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75W_TZ_F_1169_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75W_TZ_F_Inset_1068_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75W_TZ_F_Inset_1068_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75W_TZ_F_Inset_1072_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75W_TZ_F_Inset_1072_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205_N8_M205W_Q9_Double_256_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205_N8_M205W_Q9_Double_256_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205_N8_M205W_Q9_Double_277_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205_N8_M205W_Q9_Double_277_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\DNU\M205_N8_M205W_Q9_Double_277_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205_N8_M205W_Q9_Double_277_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205_N8_M_461_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205_N8_M_461_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205_N8_M_470_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205_N8_M_470_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205W_Q9_F_321_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205W_Q9_F_321_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205W_Q9_F_324_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205W_Q9_F_324_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205W_Q9_F_367_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205W_Q9_F_367_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205P_9K_M_174_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205P_9K_M_174_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205P_9K_M_192_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205P_9K_M_192_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\DNU\M205P_9K_M_192_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205P_9K_M_192_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M205\Lifestyle\M205P_9K_M_194_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M205P_9K_M_194_SOC24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M118\Lifestyle\M118_T1_M_024_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M118_T1_M_024_SOC24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\HARRITON\M118\Lifestyle\M118_T1_M_073_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\M118_T1_M_073_CAT24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\CORE365\CE104\Lifestyle\CE104_3S_M_1114_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\CE104_3S_M_1114_CAT24.jpg';},
