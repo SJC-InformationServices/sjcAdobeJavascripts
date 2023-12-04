@@ -8,24 +8,6 @@ try
     $jpegSaveOptions.Quality = 12
 
     $files = @(    
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG537\DG537_T6_DG537W_T5_Double_791_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG537_T6_DG537W_T5_Double_791_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG537\DG537_T6_M_863_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG537_T6_M_863_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG537\DG537_T6_M_912_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG537_T6_M_912_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE112\Lifestyle\NE112_MR_NE112W_3C_Double_760_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE112_MR_NE112W_3C_Double_760_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE112\Lifestyle\NE112_MR_M_465_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE112_MR_M_465_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE112\Lifestyle\NE112W_3C_F_260_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE112W_3C_F_260_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE112\Lifestyle\NE112W_3C_F_320_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE112W_3C_F_320_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE112\Lifestyle\NE112W_3C_F_532_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE112W_3C_F_532_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE112\Lifestyle\NE112W_3C_F_568_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE112W_3C_F_568_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE412\Lifestyle\NE412_9K_NE412W_4M_Double_620_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE412_9K_NE412W_4M_Double_620_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE412\Lifestyle\NE412_9K_NE412W_4M_Double_639_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE412_9K_NE412W_4M_Double_639_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE412\Lifestyle\NE412_9K_NE412W_4M_Double_745_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE412_9K_NE412W_4M_Double_745_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE412\Lifestyle\NE412_9K_M_872_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE412_9K_M_872_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE412W\_Lifestyle\NE412W_4M_F_804_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE412W_4M_F_804_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75_SE_NE75W_TZ_Double_966_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75_SE_NE75W_TZ_Double_966_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75_SE_NE75W_TZ_Double_1030_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75_SE_NE75W_TZ_Double_1030_CAT24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75_SE_M_1267_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75_SE_M_1267_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75_SE_M_Inset_1307_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75_SE_M_Inset_1307_CAT24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75W_TZ_F_1169_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75W_TZ_F_1169_SOC24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75W_TZ_F_Inset_1068_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75W_TZ_F_Inset_1068_CAT24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\NORTH END\NE75\Lifestyle\NE75W_TZ_F_Inset_1072_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\NE75W_TZ_F_Inset_1072_CAT24.jpg';},
@@ -111,6 +93,7 @@ try
     start-sleep -Seconds 3
     
     Move-Item -Path "$nf" -Destination "$dst"
+    Remove-Item $tmp
     }
 
     
