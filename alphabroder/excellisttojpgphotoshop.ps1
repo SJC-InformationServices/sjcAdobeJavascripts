@@ -8,8 +8,6 @@ try
     $jpegSaveOptions.Quality = 12
 
     $files = @(    
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG536\Lifestyle\DG536_T5_M_720_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG536_T5_M_720_SOC24.jpg';},
-@{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG536\Lifestyle\DG536W_T4_M_653_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG536W_T4_M_653_CAT24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG537\DG537_T6_DG537W_T5_Double_791_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG537_T6_DG537W_T5_Double_791_SOC24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG537\DG537_T6_M_863_CAT24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG537_T6_M_863_CAT24.jpg';},
 @{src='\\10.3.0.39\Alpha Broder\ALPHA BRODER IMAGES\DEVON&JONES\DG537\DG537_T6_M_912_SOC24.tif';dest='\\10.3.0.39\Alpha Broder\HotFolders\ExportedJpgs\DG537_T6_M_912_SOC24.jpg';},
