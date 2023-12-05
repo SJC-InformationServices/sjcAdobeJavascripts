@@ -1,13 +1,13 @@
 $appRef = New-Object -ComObject Photoshop.Application
-$in = "\\10.3.0.39\Alpha Broder\HotFolders\AlphaRGBJPG\In"
-$out = "\\10.3.0.39\Alpha Broder\HotFolders\AlphaRGBJPG\Out"
 
 try 
 {
     $appRef.DisplayDialogs = 3 # All dialogs off
     $jpegSaveOptions = New-Object -ComObject Photoshop.JPEGSaveOptions
     $jpegSaveOptions.Quality = 12
-
+        
+    $in = "\\10.3.0.39\Alpha Broder\HotFolders\AlphaRGBJPG\In"
+    $out = "\\10.3.0.39\Alpha Broder\HotFolders\AlphaRGBJPG\Out"
     $files = Get-ChildItem -Path "$in\*.*" -Include *.tif,*.jpg,*.jpeg,*.psd
 
     foreach($f in $files)
@@ -19,25 +19,25 @@ try
         $dst = "$out\$nn"
         $docRef = $appRef.Open($src)
 
-    $docRef.SaveAs($dst, $jpegSaveOptions, $true)
-    $srgbProfile = "sRGB IEC61966-2.1"
-    $intent = 2 # Relative colorimetric
-    $useBlackPointCompensation = $true
-    $docRef.ConvertProfile($srgbProfile, $intent, $useBlackPointCompensation, $true)
-
-    # Do not save changes
-    $doNotSaveChanges = 2 # Corresponds to 'Do not save changes' option
-    $docRef.Close($doNotSaveChanges)
-    }
-    $fileExists = Test-Path -Path "$src"
-    if ($fileExists)
-    {
-
-    } else {
-        Move-Item -Path "$src" -Destination "$out"
-    }
-
     
+        $srgbProfile = "sRGB IEC61966-2.1"
+        $intent = 2 # Relative colorimetric
+        $useBlackPointCompensation = $true
+        $docRef.ConvertProfile($srgbProfile, $intent, $useBlackPointCompensation, $true)
+        $docRef.SaveAs($dst, $jpegSaveOptions, $true)
+        # Do not save changes
+        $doNotSaveChanges = 2 # Corresponds to 'Do not save changes' option
+        $docRef.Close($doNotSaveChanges)
+        $fileExists = Test-Path -Path "$src"
+        if ($fileExists)
+        {
+
+        } else {
+            Move-Item -Path "$src" -Destination "$out"
+        }
+    }
+    $appRef.DoJavaScriptFile('E:\repo\sjcAdobeJavascripts\PhotoShop\server.jsx')
+        
 }
 catch 
 {
@@ -46,3 +46,6 @@ catch
     Write-Host "Exception Type: $($_.Exception.GetType().FullName)"
     Write-Host "Exception Message: $($_.Exception.Message)"
 }
+[System.Runtime.InteropServices.Marshal]::ReleaseComObject([System.__ComObject]$appRef) | Out-Null
+[System.GC]::Collect()
+[System.GC]::WaitForPendingFinalizers()
