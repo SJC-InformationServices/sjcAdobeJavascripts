@@ -102,9 +102,7 @@ function alphabroderJPGBkgrd(log) {
       
 
             var getDimB = getCropDimensions();
-            for(var i in getDimB){
-                log.writeln("CropB " +i+":"+ getDimB[i]);
-            }
+            
             
             if (getDimB.cropWidth < getDimB.cropHeight) {
                 var newY = getDimB.cropY - padding + " px";
@@ -136,7 +134,7 @@ function alphabroderJPGBkgrd(log) {
             log.writeln("Width: " + doc.width);
             doc.resizeImage(fw+"px", fh + "px");
             
-            try {
+            
                 // Save the document as a JPEG file with the specified options
                 var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
                 var jpgSave = new JPEGSaveOptions();
@@ -146,11 +144,6 @@ function alphabroderJPGBkgrd(log) {
                 jpgSave.quality = 12;
                 app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
                 
-            } catch (e) {
-                
-                log.writeln("FailedJPG: " + e.message);
-                log.writeln("FailedJPG: " + f.name);
-            }
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
        
     
