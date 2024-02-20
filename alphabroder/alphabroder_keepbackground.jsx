@@ -62,16 +62,11 @@ function alphabroderJPGBkgrd(log) {
         f = files[i];
         log.writeln(i +":"+f.fullName);
 
-            try {
+           
                 app.open(f);
                 var doc = app.activeDocument;
                 
-            } catch (e) {
-                log.writeln("Failed to Open" + f.fullName);
-                log.writeln("Error:"+e.line+" "+e.message);
-
-                continue;
-            }
+           
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
             var als = doc.artLayers;
