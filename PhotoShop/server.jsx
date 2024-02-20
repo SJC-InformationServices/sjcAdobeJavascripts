@@ -5,6 +5,7 @@ app.displayDialogs = DialogModes.NO;
 //#include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250png.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\3500x5250SquareJpgPng.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250jpgBkgroud.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\alphabroder_keepbackground.jsx";
 
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
