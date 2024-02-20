@@ -40,7 +40,7 @@ try {
             tmpF.writeln("CDN Tire Resize PNG / JPGS Only");
             tmpF.writeln("Failed to Run");
             tmpF.writeln(e.message);
-     }       
+     }     
              
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
@@ -61,10 +61,11 @@ try {
      tmpF.writeln("server.jsx " + source[i].Title+" "+source[i].source+" "+e.message);
         
 }
-tmpF.close();
+
         
 
     }
+    tmpF.close();
 } catch (e){
     tmpF.writeln($.getenv('sjcHotFolders'));
     tmpF.writeln("Can't Parse Source File" + e.message);     

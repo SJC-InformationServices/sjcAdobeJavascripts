@@ -50,7 +50,7 @@ function hotFolder(properties) {
             this.set("inFolder", Folder(this.get("source") + "\\IN"));
             this.set("outFolder", Folder(this.get("source") + "\\OUT"));
             if(this.inFolder.exists){
-                this.set("files", this.get("inFolder").getFiles(/\.(psd|tif|jpg|)$/i));
+                this.set("files", this.get("inFolder").getFiles(/\.(psd|tif|jpg|jpeg)$/i));
             }else{
                 this.error({"line":54,"message":"Folder Not Found"},"In Folder Not Found");
             }
