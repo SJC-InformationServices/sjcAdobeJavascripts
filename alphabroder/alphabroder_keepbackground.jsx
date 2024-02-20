@@ -85,8 +85,7 @@ function alphabroderJPGBkgrd(log) {
             var getDim = getCropDimensions();
 
             var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
-            log.writeln("Height: " + doc.height);
-            log.writeln("Width: " + doc.width);
+            
             if (getDim.cropWidth > getDim.cropHeight) {
                 log.writeln("Resize BY: Width");
                 doc.resizeImage(w*ratio + "px");
@@ -146,12 +145,13 @@ function alphabroderJPGBkgrd(log) {
                 jpgSave.matte = MatteType.NONE;
                 jpgSave.quality = 12;
                 app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
+                
             } catch (e) {
-                app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                
                 log.writeln("FailedJPG: " + e.message);
                 log.writeln("FailedJPG: " + f.name);
             }
-          
+            app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
        
     
     }
