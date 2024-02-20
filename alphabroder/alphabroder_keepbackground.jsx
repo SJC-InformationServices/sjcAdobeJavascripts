@@ -58,8 +58,9 @@ function alphabroderJPGBkgrd(log) {
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
     for (var i = 0; i < files.length; i++) {
+
         f = files[i];
-        try {
+        log.writeln(f.fullName);
 
             try {
                 app.open(f);
@@ -151,11 +152,7 @@ function alphabroderJPGBkgrd(log) {
                 log.writeln("FailedJPG: " + f.name);
             }
           
-        }catch (error) {
-            log.writeln("Error:"+error.line+" "+error.message);
-            app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-
-        }
+       
     
     }
     var dcurrent = new Date();
