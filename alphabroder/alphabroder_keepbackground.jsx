@@ -58,7 +58,7 @@ function alphabroderJPGBkgrd(log) {
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
     for (var i = 0; i < files.length; i++) {
-        
+        f = files[i];
         try {
 
             try {
