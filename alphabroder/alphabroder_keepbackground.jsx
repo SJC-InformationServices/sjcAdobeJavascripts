@@ -56,11 +56,11 @@ function alphabroderJPGBkgrd(log) {
     var outFolder = Folder("\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_35px_BKGD\\OUT");
 
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
-
+    log.writeln("Total Files: " + files.length);
     for (var i = 0; i < files.length; i++) {
 
         f = files[i];
-        log.writeln(f.fullName);
+        log.writeln(i +":"+f.fullName);
 
             try {
                 app.open(f);
