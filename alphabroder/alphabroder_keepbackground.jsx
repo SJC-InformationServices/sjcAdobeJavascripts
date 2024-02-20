@@ -157,7 +157,7 @@ function alphabroderJPGBkgrd(log) {
 
         }
     
-
+    }
     var dcurrent = new Date();
     var dcDate = dcurrent.getFullYear() + '-' + (dcurrent.getMonth() + 1) + '-' + dcurrent.getDate();
     var dcTime = dcurrent.getHours() + ":" + dcurrent.getMinutes() + ":" + dcurrent.getSeconds();
@@ -165,4 +165,4 @@ function alphabroderJPGBkgrd(log) {
 
     log.writeln("End: " + ddateTime);
     return true;
-}}
+}
