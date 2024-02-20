@@ -61,15 +61,15 @@ function alphabroderJPGBkgrd(log) {
         
         try {
 
-            try {
+            /*try {
                 f = files[i];
                 
-                f.copy(outFolder + "\\" + f.name);
+                //f.copy(outFolder + "\\" + f.name);
             } catch (e) {
                 log.writeln("Copy File Failed " + f.fullName);
                 log.writeln("Error:"+e.line+" "+e.message);
                 continue;
-            }
+            }*/
 
             try {
                 app.open(f);
@@ -219,7 +219,7 @@ function alphabroderJPGBkgrd(log) {
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 
             // Remove the original file from the input folder
-            f.remove();
+            //f.remove();
 
         } catch (error) {
             log.writeln("Error:"+error.line+" "+error.message);
