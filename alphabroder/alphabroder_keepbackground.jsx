@@ -9,9 +9,9 @@ function alphabroderJPGBkgrd(log) {
     function removeLayers(layerSet) {
         // loop over all layers in the layer set
 
-        for (var i = layerSet.layers.length - 1; i >= 0; i--) {
+        for (var y = layerSet.layers.length - 1; y >= 0; y--) {
             // get a reference to the current layer
-            var currentLayer = layerSet.layers[i];
+            var currentLayer = layerSet.layers[y];
 
             // check if the current layer is a layer group
             if (currentLayer.typename === "LayerSet") {
@@ -145,7 +145,7 @@ function alphabroderJPGBkgrd(log) {
                 app.activeDocument.saveAs(nf, jpgSave, true, Extension.LOWERCASE);
                 
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-       
+            f.remove();
     
     }
     var dcurrent = new Date();
