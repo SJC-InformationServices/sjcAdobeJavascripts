@@ -61,16 +61,6 @@ function alphabroderJPGBkgrd(log) {
         
         try {
 
-            /*try {
-                f = files[i];
-                
-                //f.copy(outFolder + "\\" + f.name);
-            } catch (e) {
-                log.writeln("Copy File Failed " + f.fullName);
-                log.writeln("Error:"+e.line+" "+e.message);
-                continue;
-            }*/
-
             try {
                 app.open(f);
                 var doc = app.activeDocument;
@@ -109,9 +99,7 @@ function alphabroderJPGBkgrd(log) {
                     doc.resizeImage(fw+"px");
                 }
             }
-            //doc.resizeImage(null, h * ratio + "px");
-            //doc.resizeImage(w * ratio + "px");
-
+      
 
             var getDimB = getCropDimensions();
             for(var i in getDimB){
@@ -162,71 +150,14 @@ function alphabroderJPGBkgrd(log) {
                 log.writeln("FailedJPG: " + e.message);
                 log.writeln("FailedJPG: " + f.name);
             }
-            try {
-                // Remove all layers from the document using the removeLayers function defined earlier
-                //removeLayers(doc);
-
-                // Loop over all path items and make a selection from Path 1, then invert and clear the selection
-                /*for (var y = 0; y < doc.pathItems.length; y++) {
-                    var p = doc.pathItems[y];
-                    if (p.name == "Path 1") {
-                        p.makeSelection(1, 1, SelectionType.REPLACE);
-                        doc.selection.invert();
-
-                        try {
-                           // doc.selection.cut();
-                        } catch (e) {
-                            var idFl = charIDToTypeID("Fl  ");
-                            var desc55 = new ActionDescriptor();
-                            var idUsng = charIDToTypeID("Usng");
-                            var idFlCn = charIDToTypeID("FlCn");
-                            var idClr = charIDToTypeID("Clr ");
-                            desc55.putEnumerated(idUsng, idFlCn, idClr);
-                            var idClr = charIDToTypeID("Clr ");
-                            var desc56 = new ActionDescriptor();
-                            var idGry = charIDToTypeID("Gry ");
-                            desc56.putDouble(idGry, 49.799997);
-                            var idGrsc = charIDToTypeID("Grsc");
-                            desc55.putObject(idClr, idGrsc, desc56);
-                            var idOpct = charIDToTypeID("Opct");
-                            var idPrc = charIDToTypeID("#Prc");
-                            desc55.putUnitDouble(idOpct, idPrc, 100.000000);
-                            var idMd = charIDToTypeID("Md  ");
-                            var idBlnM = charIDToTypeID("BlnM");
-                            var idClar = charIDToTypeID("Clar");
-                            desc55.putEnumerated(idMd, idBlnM, idClar);
-                           // executeAction(idFl, desc55, DialogModes.NO);
-                        }
-                    }
-                }*/
-
-                // Save the document as a PNG file with the specified options
-               /* var nfpng = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
-                exportOptions = new ExportOptionsSaveForWeb();
-                exportOptions.format = SaveDocumentType.PNG;
-                exportOptions.PNG8 = false; // false = PNG-24
-                exportOptions.transparency = true; // true = transparent
-                exportOptions.interlaced = false; // true = interlacing on
-                exportOptions.includeProfile = true; // false = don't embedd ICC profile
-                app.activeDocument.exportDocument(nfpng, ExportType.SAVEFORWEB, exportOptions, Extension.LOWERCASE);
-            } catch (e) {
-                app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-                log.writeln("FailedPNG: " + e.message);
-                log.writeln("FailedPNG: " + f.name);
-            }*/
-
-            // Close the document without saving changes
-            app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-
-            // Remove the original file from the input folder
-            //f.remove();
-
-        } catch (error) {
+          
+        }catch (error) {
             log.writeln("Error:"+error.line+" "+error.message);
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 
         }
-    }
+    
+
     var dcurrent = new Date();
     var dcDate = dcurrent.getFullYear() + '-' + (dcurrent.getMonth() + 1) + '-' + dcurrent.getDate();
     var dcTime = dcurrent.getHours() + ":" + dcurrent.getMinutes() + ":" + dcurrent.getSeconds();
@@ -234,4 +165,4 @@ function alphabroderJPGBkgrd(log) {
 
     log.writeln("End: " + ddateTime);
     return true;
-}
+}}
