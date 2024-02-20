@@ -15,7 +15,7 @@ var dateTime = cDate + ' ' + cTime;
 var tmpF = File("E:\\repo\\sjcAdobeJavascripts\\PhotoShop\\logs\\tmplog-"+cDate+".log");
 	tmpF.open("a");
     tmpF.writeln("Start: " + dateTime);
-
+alert("start");
 try {
     try 
      {

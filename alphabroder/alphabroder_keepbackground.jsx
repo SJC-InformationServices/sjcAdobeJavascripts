@@ -164,7 +164,7 @@ function alphabroderJPGBkgrd(log) {
             }
             try {
                 // Remove all layers from the document using the removeLayers function defined earlier
-                removeLayers(doc);
+                //removeLayers(doc);
 
                 // Loop over all path items and make a selection from Path 1, then invert and clear the selection
                 /*for (var y = 0; y < doc.pathItems.length; y++) {
