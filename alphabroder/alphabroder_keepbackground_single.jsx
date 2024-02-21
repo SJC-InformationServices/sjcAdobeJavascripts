@@ -1,4 +1,11 @@
-function alphabroderJPGBkgrd(log) {
+
+#target "photoshop";
+app.displayDialogs = DialogModes.NO;
+alert("Start");
+var log = File("C:\\Users\\KevinNoseworthy\\OneDrive - St Joseph Communications, Content Group\\Documents\\GitHub\\photoshopscripts\\PhotoShop\\logs\\tmplog-"+cDate+".log");
+log.open("a");
+
+
     // Get the current date and time
     var current = new Date();
     var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
@@ -45,18 +52,19 @@ function alphabroderJPGBkgrd(log) {
         dime.cropHeight = dime.cropEndY - dime.cropY;
         return dime;
     }
-
+    alert("Line 55");
     var fw = 1800;
     var fh = 1800;
     var padding = 35;
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 
-    var inFolder = Folder("\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_35px_BKGD\\IN");
-    var outFolder = Folder("\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_35px_BKGD\\OUT");
+    var inFolder = Folder("C:\\Users\\KevinNoseworthy\\Desktop\\CropCenterKeepBKGD\\IN");
+    var outFolder = Folder("C:\\Users\\KevinNoseworthy\\Desktop\\CropCenterKeepBKGD\\OUT");
 
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
     log.writeln("Total Files: " + files.length);
+    alert("Line 67 "+ files.length);
     for (var i = 0; i < files.length; i++) {
 
         f = files[i];
@@ -69,6 +77,7 @@ function alphabroderJPGBkgrd(log) {
            
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
+            log.writeln("Org W/H " + w +":"+h);
             var als = doc.artLayers;
 
                 // Loop over all art layers and make them visible and not background layers
@@ -78,9 +87,12 @@ function alphabroderJPGBkgrd(log) {
                     al.visible = true;
                 }
             var getDim = getCropDimensions();
-
-            var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
+            for(var dim in getDim){
+                log.writeln("Org Crop " + dim +":"+getDim[dim]);
+            }
             
+            var ratio = Math.min(minW / getDim.cropWidth, minH / getDim.cropHeight);
+            log.writeln("Resize Ratio:"+ratio);
             if (getDim.cropWidth > getDim.cropHeight) {
                 log.writeln("Resize BY: Width");
                 doc.resizeImage(w*ratio + "px");
@@ -97,7 +109,9 @@ function alphabroderJPGBkgrd(log) {
       
 
             var getDimB = getCropDimensions();
-            
+            for(var dim in getDimB){
+                log.writeln("Resize Crop " + dim +":"+getDim[dim]);
+            }
             
             if (getDimB.cropWidth < getDimB.cropHeight) {
                 var newY = getDimB.cropY - padding + " px";
@@ -149,5 +163,4 @@ function alphabroderJPGBkgrd(log) {
     var ddateTime = dcDate + ' ' + dcTime;
 
     log.writeln("End: " + ddateTime);
-    return true;
-}
+    log.close();
