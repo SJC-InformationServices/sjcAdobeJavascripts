@@ -19,6 +19,7 @@ log.writeln("TotalFiles: " + files.length);
         try {
 
         f=files[i];
+        try{
         app.open(f);
         var doc = app.activeDocument;
         //alert(doc.colorProfileName);
@@ -40,9 +41,15 @@ log.writeln("TotalFiles: " + files.length);
       app.activeDocument.saveAs(nf,epsSaveOpts,true,Extension.LOWERCASE);
       app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
         f.remove();
+    } catch(e){
+        app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+        log.writeln("FailedSMTEPS: " + e.message);
+        log.writeln("FailedSMTEPS FILE: " + f.name);
+    }
 
     }catch(e){
-        return e;
+        log.writeln("FailedSMTEPS: " + e.message);
+                
     }
 }
 // Get the current date and time again at the end of processing all files
