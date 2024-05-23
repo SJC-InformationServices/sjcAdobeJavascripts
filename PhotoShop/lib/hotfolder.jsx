@@ -196,13 +196,13 @@ function hotFolder(properties) {
             }
             if (doc.width > doc.height) {
                 doc.resizeImage(this.width + "px");
-                if (doc.height > parseInt(this.height)) {
-                    doc.resizeImage(null, this.height + "px")
+                if (doc.height > parseInt(this.canvasHeight)) {
+                    doc.resizeImage(null, this.canvasHeight + "px")
                 }
             } else {
                 doc.resizeImage(null, this.height + "px");
-                if (doc.width > parseInt(this.width)) {
-                    doc.resizeImage(this.width);
+                if (doc.width > parseInt(this.canvasWidth)) {
+                    doc.resizeImage(this.canvasWidth);
                 }
             }
             
