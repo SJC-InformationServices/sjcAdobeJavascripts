@@ -29,7 +29,12 @@ log.writeln("TotalFiles: " + files.length);
         try {
             path = doc.pathItems.getByName(this.clippingPath.Value).makeClippingPath(0.2);        
         } catch (e) {
-            path = doc.pathItems[0].makeClippingPath(0.2);
+            try {
+                path = doc.pathItems[0].makeClippingPath(0.2);
+            } catch (e)
+            {
+                
+            }
         }
         epsSaveOpts = new EPSSaveOptions();
           epsSaveOpts.embedColorProfile = true;
