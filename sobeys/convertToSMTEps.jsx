@@ -39,8 +39,8 @@ log.writeln("TotalFiles: " + files.length);
         epsSaveOpts = new EPSSaveOptions();
           epsSaveOpts.embedColorProfile = true;
 	      epsSaveOpts.flattenOuput = false;
-	      epsSaveOpts.includeDocumentThumbnails = true;
-	      epsSaveOpts.encoding = SaveEncoding.JPEGMAXIMUM; //syntax was wrong on this
+	      epsSaveOpts.includeDocumentThumbnails = false;
+	      //epsSaveOpts.encoding = SaveEncoding.JPEGMAXIMUM; //syntax was wrong on this
         
       var nf = File(outFolder +"/"+ app.activeDocument.name);
       app.activeDocument.saveAs(nf,epsSaveOpts,true,Extension.LOWERCASE);
