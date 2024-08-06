@@ -1,0 +1,47 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives('b%21AYMQVcqkyEu1AwiTd4lNJO9P414tjLBFqsIbPUXxFTKUZqBwEFWhSIhI5wukq_tu')/items('01REY2XM3TQSURYIRR3JALKTFOPAV723CI')/workbook/tables",
+  "value": [
+    {
+      "@odata.id": "/drives('b%21AYMQVcqkyEu1AwiTd4lNJO9P414tjLBFqsIbPUXxFTKUZqBwEFWhSIhI5wukq_tu')/items('01REY2XM3TQSURYIRR3JALKTFOPAV723CI')/workbook/tables(%27%7BF574DC3E-2FB2-42B2-97FA-68669A0FEE89%7D%27)",
+      "showFilterButton": true,
+      "id": "{F574DC3E-2FB2-42B2-97FA-68669A0FEE89}",
+      "highlightLastColumn": false,
+      "highlightFirstColumn": false,
+      "legacyId": "2",
+      "style": "TableStyleMedium7",
+      "name": "Table_Import",
+      "showBandedColumns": false,
+      "showBandedRows": true,
+      "showHeaders": true,
+      "showTotals": false
+    },
+    {
+      "@odata.id": "/drives('b%21AYMQVcqkyEu1AwiTd4lNJO9P414tjLBFqsIbPUXxFTKUZqBwEFWhSIhI5wukq_tu')/items('01REY2XM3TQSURYIRR3JALKTFOPAV723CI')/workbook/tables(%27%7B2E9AEDD0-3A07-4E10-87B4-14DB518B6DC1%7D%27)",
+      "showFilterButton": true,
+      "id": "{2E9AEDD0-3A07-4E10-87B4-14DB518B6DC1}",
+      "highlightLastColumn": false,
+      "highlightFirstColumn": false,
+      "legacyId": "3",
+      "style": "TableStyleMedium7",
+      "name": "Source",
+      "showBandedColumns": false,
+      "showBandedRows": true,
+      "showHeaders": true,
+      "showTotals": false
+    },
+    {
+      "@odata.id": "/drives('b%21AYMQVcqkyEu1AwiTd4lNJO9P414tjLBFqsIbPUXxFTKUZqBwEFWhSIhI5wukq_tu')/items('01REY2XM3TQSURYIRR3JALKTFOPAV723CI')/workbook/tables(%27%7B9998DE40-3E70-4D73-9103-4DA887A80B5D%7D%27)",
+      "showFilterButton": true,
+      "id": "{9998DE40-3E70-4D73-9103-4DA887A80B5D}",
+      "highlightLastColumn": false,
+      "highlightFirstColumn": false,
+      "legacyId": "1",
+      "style": "TableStyleMedium7",
+      "name": "Rawdata",
+      "showBandedColumns": false,
+      "showBandedRows": true,
+      "showHeaders": true,
+      "showTotals": false
+    }
+  ]
+}
