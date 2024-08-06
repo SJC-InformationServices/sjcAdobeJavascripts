@@ -11,7 +11,7 @@ var inFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippi
 //var inFolder = Folder.selectDialog("Select Source Folder");
 var outFolder = Folder("\\\\10.136.209.199\\Sobeys_Assets\\_HotFolders\\EpsClippingPath\\Out");
 
-var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
+var files = inFolder.getFiles(/\.(psd|tif|jpg|eps|)$/i);
 log.writeln("TotalFiles: " + files.length);
     
     for(var i=0;i<files.length;i++)
