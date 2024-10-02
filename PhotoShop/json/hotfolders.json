@@ -416,80 +416,6 @@
     "{HasAttachments}": false,
     "{VersionNumber}": "5.0"
 },{
-    "@odata.etag": "\"4\"",
-    "ItemInternalId": "24",
-    "ID": 24,
-    "Title": "Alpha1800x1800x300dpi_35pxPad",
-    "source": "\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_35px",
-    "ratio": 1.0,
-    "width": 1730.0,
-    "height": 1730.0,
-    "canvasWidth": 1800.0,
-    "canvasHeight": 1800.0,
-    "align": {
-        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-        "Id": 0,
-        "Value": "MIDDLECENTER"
-    },
-    "align#Id": 0,
-    "clippingPath": {
-        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-        "Id": 0,
-        "Value": "Path 1"
-    },
-    "clippingPath#Id": 0,
-    "filters": [{
-        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-        "Id": 0,
-        "Value": "jpg"
-    }],
-    "filters@odata.type": "#Collection(Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference)",
-    "filters#Id": [0],
-    "filters#Id@odata.type": "#Collection(Int64)",
-    "format": {
-        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-        "Id": 0,
-        "Value": "orginal"
-    },
-    "format#Id": 0,
-    "export_for_web": false,
-    "Modified": "2023-04-13T15:19:43Z",
-    "Created": "2023-04-10T19:25:18Z",
-    "Author": {
-        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-        "Claims": "i:0#.f|membership|kevin.noseworthy@stjosephcontent.com",
-        "DisplayName": "Kevin Noseworthy",
-        "Email": "kevin.noseworthy@stjosephcontent.com",
-        "Picture": "https://sjccontent.sharepoint.com/teams/AlphaBroderContent/_layouts/15/UserPhoto.aspx?Size=L&AccountName=kevin.noseworthy@stjosephcontent.com",
-        "Department": "Information Services",
-        "JobTitle": null
-    },
-    "Author#Claims": "i:0#.f|membership|kevin.noseworthy@stjosephcontent.com",
-    "Editor": {
-        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-        "Claims": "i:0#.f|membership|kevin.noseworthy@stjosephcontent.com",
-        "DisplayName": "Kevin Noseworthy",
-        "Email": "kevin.noseworthy@stjosephcontent.com",
-        "Picture": "https://sjccontent.sharepoint.com/teams/AlphaBroderContent/_layouts/15/UserPhoto.aspx?Size=L&AccountName=kevin.noseworthy@stjosephcontent.com",
-        "Department": "Information Services",
-        "JobTitle": null
-    },
-    "Editor#Claims": "i:0#.f|membership|kevin.noseworthy@stjosephcontent.com",
-    "{Identifier}": "Lists%252fHotFolders%252f24_.000",
-    "{IsFolder}": false,
-    "{Thumbnail}": {
-        "Large": null,
-        "Medium": null,
-        "Small": null
-    },
-    "{Link}": "https://sjccontent.sharepoint.com/teams/AlphaBroderContent/_layouts/15/listform.aspx?PageType=4&ListId=d49bf964%2Ddab3%2D49f8%2D9046%2D9465f28a3d79&ID=24&ContentTypeID=0x01003F21E5DB2D18584EB03E947BDB53CE1700AAF5D3E440797443841271A99BD909AE",
-    "{Name}": "Alpha1800x1800x300dpi_35pxPad",
-    "{FilenameWithExtension}": "Alpha1800x1800x300dpi_35pxPad",
-    "{Path}": "Lists/HotFolders/",
-    "{FullPath}": "Lists/HotFolders/24_.000",
-    "{HasAttachments}": false,
-    "{VersionNumber}": "4.0"
-}, {
     "@odata.etag": "\"5\"",
     "ItemInternalId": "25",
     "ID": 25,
@@ -564,5 +490,43 @@
     "{FullPath}": "Lists/HotFolders/25_.000",
     "{HasAttachments}": false,
     "{VersionNumber}": "5.0"
+},{
+    "@odata.etag": "\"4\"",
+    "ItemInternalId": "24",
+    "ID": 24,
+    "Title": "Alpha1800x1800x300dpi_50pxPad",
+    "source": "\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_50px",
+    "ratio": 1.0,
+    "width": 1700.0,
+    "height": 1700.0,
+    "canvasWidth": 1800.0,
+    "canvasHeight": 1800.0,
+    "align": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "MIDDLECENTER"
+    },
+    "align#Id": 0,
+    "clippingPath": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "Path 1"
+    },
+    "clippingPath#Id": 0,
+    "filters": [{
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "jpg"
+    }],
+    "filters@odata.type": "#Collection(Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference)",
+    "filters#Id": [0],
+    "filters#Id@odata.type": "#Collection(Int64)",
+    "format": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "orginal"
+    },
+    "format#Id": 0,
+    "export_for_web": false
 }
 ]
