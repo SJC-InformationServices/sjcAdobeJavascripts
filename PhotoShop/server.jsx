@@ -7,6 +7,9 @@ app.displayDialogs = DialogModes.NO;
 #include "E:\\repo\\sjcAdobeJavascripts\\canadiantire\\cropAndCenter3500x5250jpgBkgroud.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\alphabroder_keepbackground.jsx";
 
+#include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\alphabroder_keepbackground 1800x180050px.jsx";
+#include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\alphabroder_keepbackground 800x80050px.jsx";
+
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
@@ -49,6 +52,22 @@ try {
          catch(e) {
             tmpF.writeln("Alpha Resize PNG / JPGS Only");
             tmpF.writeln("Failed to Run");
+            tmpF.writeln(e.message);
+     }
+     try 
+     {
+        alphabroderJPGBkgrd1800(tmpF);
+    }
+         catch(e) {
+            tmpF.writeln("alphabroderJPGBkgrd1800: ");
+            tmpF.writeln(e.message);
+     }   
+     try 
+     {
+        alphabroderJPGBkgrd800(tmpF);
+    }
+         catch(e) {
+            tmpF.writeln("alphabroderJPGBkgrd800: ");
             tmpF.writeln(e.message);
      }    
              

@@ -1,10 +1,10 @@
-function alphabroderJPGBkgrd(log) {
+function alphabroderJPGBkgrd1800(log) {
     // Get the current date and time
     var current = new Date();
     var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
     var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
     var dateTime = cDate + ' ' + cTime;
-    log.writeln("Start ALPHA KeepBackground: " + dateTime);
+    log.writeln("Start ALPHA KeepBackground 1800: " + dateTime);
 
     function removeLayers(layerSet) {
         // loop over all layers in the layer set
@@ -48,12 +48,12 @@ function alphabroderJPGBkgrd(log) {
 
     var fw = 1800;
     var fh = 1800;
-    var padding = 35;
+    var padding = 50;
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 
-    var inFolder = Folder("\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_35px_BKGD\\IN");
-    var outFolder = Folder("\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_35px_BKGD\\OUT");
+    var inFolder = Folder("\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_50px_BKGD\\IN");
+    var outFolder = Folder("\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_50px_BKGD\\OUT");
 
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
     log.writeln("Total Files: " + files.length);

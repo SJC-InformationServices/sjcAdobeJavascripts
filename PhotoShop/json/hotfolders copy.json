@@ -1037,3 +1037,84 @@
     "{VersionNumber}": "5.0"
 }
 ]
+
+/*{
+    "@odata.etag": "\"4\"",
+    "ItemInternalId": "24",
+    "ID": 24,
+    "Title": "Alpha1800x1800x300dpi_50pxPad",
+    "source": "\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha1800x1800x300dpi_50px",
+    "ratio": 1.0,
+    "width": 1700.0,
+    "height": 1700.0,
+    "canvasWidth": 1800.0,
+    "canvasHeight": 1800.0,
+    "align": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "MIDDLECENTER"
+    },
+    "align#Id": 0,
+    "clippingPath": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "Path 1"
+    },
+    "clippingPath#Id": 0,
+    "filters": [{
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "jpg"
+    }],
+    "filters@odata.type": "#Collection(Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference)",
+    "filters#Id": [0],
+    "filters#Id@odata.type": "#Collection(Int64)",
+    "format": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "jpg"
+    },
+    "export_for_web": false
+},{
+    "@odata.etag": "\"5\"",
+    "ItemInternalId": "25",
+    "ID": 25,
+    "Title": "Alpha800x800x72dpi_50pxPad",
+    "source": "\\\\10.3.0.39\\Alpha Broder\\HotFolders\\Alpha800x800x72dpi_50px",
+    "dpi":72,
+    "ratio": 1.0,
+    "width": 750.0,
+    "height": 750.0,
+    "canvasWidth": 800.0,
+    "canvasHeight": 800.0,
+    "align": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "MIDDLECENTER"
+    },
+    "align#Id": 0,
+    "clippingPath": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "Path 1"
+    },
+    "clippingPath#Id": 0,
+    "filters": [{
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "jpg"
+    }],
+    "filters@odata.type": "#Collection(Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference)",
+    "filters#Id": [0],
+    "filters#Id@odata.type": "#Collection(Int64)",
+    "format": {
+        "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        "Id": 0,
+        "Value": "jpg"
+    },
+    "format#Id": 0,
+    "export_for_web": false,
+    "Modified": "2023-04-13T15:19:47Z",
+    "Created": "2023-04-10T19:29:02Z"
+   
+}*/
