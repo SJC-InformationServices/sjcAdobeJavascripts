@@ -46,9 +46,9 @@ function alphabroderJPGBkgrd800(log) {
         return dime;
     }
 
-    var fw = 1800;
-    var fh = 1800;
-    var padding = 35;
+    var fw = 800;
+    var fh = 800;
+    var padding = 50;
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 
