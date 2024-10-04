@@ -48,7 +48,7 @@ function alphabroderJPGBkgrd1800(log) {
 
     var fw = 1800;
     var fh = 1800;
-    var padding = 50;
+    var padding = 112.5;
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 
