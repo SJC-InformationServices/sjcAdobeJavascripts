@@ -48,7 +48,7 @@ function snsPngBkgrd2400(log) {
 
     var fw = 2400;
     var fh = 2400;
-    var padding = 112.5;
+    var padding = 150;
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 
@@ -131,7 +131,7 @@ function snsPngBkgrd2400(log) {
             
             
                 // Save the document as a JPEG file with the specified options
-                var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".jpg");
+                var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
                 var exportOptions = new ExportOptionsSaveForWeb();
                 exportOptions.format = SaveDocumentType.PNG;
                 exportOptions.PNG8 = false; // Set to true for PNG-8, false for PNG-24
