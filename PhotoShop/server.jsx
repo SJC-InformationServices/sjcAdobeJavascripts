@@ -10,6 +10,8 @@ app.displayDialogs = DialogModes.NO;
 #include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\alphabroder_keepbackground 1800x180050px.jsx";
 #include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\alphabroder_keepbackground 800x80050px.jsx";
 
+#include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\sns_2400x2400_keepbkgd_50px.jsx";
+
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
@@ -65,6 +67,14 @@ try {
      try 
      {
         alphabroderJPGBkgrd800(tmpF);
+    }
+         catch(e) {
+            tmpF.writeln("alphabroderJPGBkgrd800: ");
+            tmpF.writeln(e.message);
+     }    
+     try 
+     {
+        snsPngBkgrd2400(tmpF);
     }
          catch(e) {
             tmpF.writeln("alphabroderJPGBkgrd800: ");
