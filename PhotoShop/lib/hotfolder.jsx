@@ -229,7 +229,7 @@ function hotFolder(properties) {
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
             var getDim = getCropDimensions();
-
+            alert(getDim.join(", "));
             var ratio = Math.min(this.width / getDim.cropWidth, this.height / getDim.cropHeight);
             if (getDim.cropWidth > getDim.cropHeight) {
                 //log.writeln("Resize BY: Width");
