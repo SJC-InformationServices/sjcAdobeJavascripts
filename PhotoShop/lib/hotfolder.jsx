@@ -198,12 +198,13 @@ function hotFolder(properties) {
     return true;
     };
     this.resizeFile = function () {
+        var doc = app.activeDocument;
         if(this.width == 0 || this.height == 0)
         {
             return true;
         }
         try {
-            var doc = app.activeDocument;
+            
             if(this.ratio != 1.0)
             {
                 doc.crop([0,0,doc.width,doc.height*this.ratio]);
@@ -214,7 +215,7 @@ function hotFolder(properties) {
             }
             var padding = 35;
             if (doc.width > doc.height) {
-                padding=this.canvasWidth-this.Width;
+                padding=parseFloat(this.canvasWidth)-parseFloat(this.width);
                 /*doc.resizeImage(this.width + "px");
                 if (doc.height > parseInt(this.canvasHeight)) {
                     doc.resizeImage(null, this.canvasHeight + "px")
@@ -230,7 +231,7 @@ function hotFolder(properties) {
             var h = parseFloat(doc.height);
             var getDim = getCropDimensions();
             alert(getDim.join(", "));
-            var ratio = Math.min(this.width / getDim.cropWidth, this.height / getDim.cropHeight);
+            var ratio = Math.min(parseFloat(this.width) / getDim.cropWidth, parseFloat(this.height) / getDim.cropHeight);
             if (getDim.cropWidth > getDim.cropHeight) {
                 //log.writeln("Resize BY: Width");
                 doc.resizeImage(w*ratio + "px");
