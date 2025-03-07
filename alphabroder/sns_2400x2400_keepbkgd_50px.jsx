@@ -45,6 +45,14 @@ function snsPngBkgrd2400(log) {
         dime.cropHeight = dime.cropEndY - dime.cropY;
         return dime;
     }
+    var originalBGColor = app.backgroundColor;
+    var grey = " 4c 3m 3y";
+    var cmykColor = new SolidColor();
+        cmykColor.cmyk.cyan = 4;
+        cmykColor.cmyk.magenta = 3;
+        cmykColor.cmyk.yellow = 3;
+        cmykColor.cmyk.black = 0;
+        app.backgroundColor = cmykColor;
 
     var fw = 2400;
     var fh = 2400;
@@ -148,7 +156,7 @@ function snsPngBkgrd2400(log) {
     var dcDate = dcurrent.getFullYear() + '-' + (dcurrent.getMonth() + 1) + '-' + dcurrent.getDate();
     var dcTime = dcurrent.getHours() + ":" + dcurrent.getMinutes() + ":" + dcurrent.getSeconds();
     var ddateTime = dcDate + ' ' + dcTime;
-
+    app.backgroundColor = originalBGColor;
     log.writeln("End: " + ddateTime);
     return true;
 }
