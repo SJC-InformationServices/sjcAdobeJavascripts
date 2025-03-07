@@ -100,6 +100,8 @@ function hotFolder(properties) {
                 var f = imgs[i];
 
                 app.open(f);
+                this.w = parseFloat(app.activeDocument.width);
+                this.h = parseFloat(app.activeDocument.height);
                 if(this.flattenFile()){
                     if(this.clipFile()){
                         if(this.resizeFile()){
@@ -133,6 +135,24 @@ function hotFolder(properties) {
         }
         return true;
     };
+    this.getCropDimensions = function(){
+        var dime = {};
+        for (var y = 0; y < app.activeDocument.pathItems.length; y++) {
+            p = app.activeDocument.pathItems[y];
+            if (p.name == "Path 1") {
+                p.makeSelection(1, 1, SelectionType.REPLACE);
+            }
+        }
+
+        var crop = app.activeDocument.selection.bounds.join("||").split("||");
+        dime.cropX = parseFloat(crop[0]);
+        dime.cropY = parseFloat(crop[1]);
+        dime.cropEndX = parseFloat(crop[2]);
+        dime.cropEndY = parseFloat(crop[3]);
+        dime.cropWidth = dime.cropEndX - dime.cropX;
+        dime.cropHeight = dime.cropEndY - dime.cropY;
+        return dime;
+    }
     this.clipFile = function () {
         if(typeof this.clippingPath != 'undefined'){
         try {
@@ -192,8 +212,9 @@ function hotFolder(properties) {
             }
             if(this.dpi==72)
             {
-                doc.resizeImage(null,null,72);
+                doc.resizeImage(null,null,72,ResampleMethod.NONE);
             }
+            /*
             if (doc.width > doc.height) {
                 doc.resizeImage(this.width + "px");
                 if (doc.height > parseInt(this.canvasHeight)) {
@@ -204,8 +225,58 @@ function hotFolder(properties) {
                 if (doc.width > parseInt(this.canvasWidth)) {
                     doc.resizeImage(this.canvasWidth);
                 }
-            }
+            }*/
+           
+                var getDim = getCropDimensions();
+
+                var ratio = Math.min(this.width / getDim.cropWidth, this.height / getDim.cropHeight);
+                
+                if (getDim.cropWidth > getDim.cropHeight) {
+                    var padding = this.canvasWidth-this.w;    
+                    doc.resizeImage(this.w*ratio + "px");
+                    /*if (doc.height > parseInt(fh)) {
+                        doc.resizeImage(null, fh + "px")
+                    }*/
+                } else {
+                    var padding = this.canvasHeight-this.h;
+                    doc.resizeImage(null,this.h * ratio + "px");
+                    /*if (doc.width > parseInt(fw)) {
+                        doc.resizeImage(fw+"px");
+                    }*/
+                }
+
+                 var getDimB = getCropDimensions();
+                
             
+            if (getDimB.cropWidth < getDimB.cropHeight) {
+                var newY = getDimB.cropY - padding + " px";
+                var newEndY = getDimB.cropEndY + padding + " px";
+
+                var offSet = (fw - getDimB.cropWidth) / 2;
+
+                var newX = getDimB.cropX - offSet + " px";
+                var newEndX = getDimB.cropEndX + offSet + " px";
+                var newC = [newY, newEndY, offSet, newX, newEndX];
+            } else {
+                var newX = getDimB.cropX - padding + " px";
+                var newEndX = getDimB.cropEndX + padding + " px";
+
+                var offSet = (fh  - getDimB.cropHeight) / 2;
+                var newY = getDimB.cropY - offSet + " px";
+                var newEndY = getDimB.cropEndY + offSet + " px";
+
+                var newC = [newY, newEndY, offSet, newX, newEndX];
+            }
+
+            doc.crop([
+                newX,
+                newY,
+                newEndX,
+                newEndY
+            ]);
+
+
+
            
             doc.resizeCanvas(this.canvasWidth, this.canvasHeight, this.AnchorPosition);
         } catch (e) {
