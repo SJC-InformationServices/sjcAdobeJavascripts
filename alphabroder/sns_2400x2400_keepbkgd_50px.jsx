@@ -56,7 +56,7 @@ function snsPngBkgrd2400(log) {
 
     var fw = 2400;
     var fh = 2400;
-    var padding = 150;
+    var padding = 75;
     var minH = fh - (padding * 2);
     var minW = fw - (padding * 2);
 
@@ -138,7 +138,7 @@ function snsPngBkgrd2400(log) {
             
             doc.resizeImage(fw+"px", fh + "px");
             doc.resizeImage(undefined,undefined,300,ResampleMethod.NONE);
-            doc.resizeImage(fw+"px", fh + "px");
+            
             var artLayer = doc.artLayers.add();
 artLayer.name = "Background Fill";
 doc.selection.selectAll();
@@ -149,6 +149,8 @@ doc.selection.deselect();
 artLayer.move(doc.artLayers[doc.artLayers.length - 1], ElementPlacement.PLACEAFTER);
 doc.flatten();
             
+doc.resizeImage(fw+"px", fh + "px");
+doc.resizeImage(undefined,undefined,300,ResampleMethod.NONE);
                 // Save the document as a JPEG file with the specified options
                 var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
                /* var exportOptions = new ExportOptionsSaveForWeb();
