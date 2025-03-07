@@ -232,13 +232,13 @@ function hotFolder(properties) {
 
             var ratio = Math.min(this.width / getDim.cropWidth, this.height / getDim.cropHeight);
             if (getDim.cropWidth > getDim.cropHeight) {
-                log.writeln("Resize BY: Width");
+                //log.writeln("Resize BY: Width");
                 doc.resizeImage(w*ratio + "px");
                 /*if (doc.height > parseInt(fh)) {
                     doc.resizeImage(null, fh + "px")
                 }*/
             } else {
-                log.writeln("Resize By: Height");
+                //log.writeln("Resize By: Height");
                 doc.resizeImage(null, h * ratio + "px");
                 /*if (doc.width > parseInt(fw)) {
                     doc.resizeImage(fw+"px");
