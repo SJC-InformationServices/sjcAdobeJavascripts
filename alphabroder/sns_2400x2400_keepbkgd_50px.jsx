@@ -135,6 +135,8 @@ function snsPngBkgrd2400(log) {
             ]);
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
+            
+            doc.resizeImage(fw+"px", fh + "px");
             doc.resizeImage(undefined,undefined,300,ResampleMethod.NONE);
             doc.resizeImage(fw+"px", fh + "px");
             var artLayer = doc.artLayers.add();
