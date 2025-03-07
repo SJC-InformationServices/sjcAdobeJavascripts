@@ -137,7 +137,15 @@ function snsPngBkgrd2400(log) {
             log.writeln("Width: " + doc.width);
             doc.resizeImage(undefined,undefined,300,ResampleMethod.NONE);
             doc.resizeImage(fw+"px", fh + "px");
-            
+            var artLayer = doc.artLayers.add();
+artLayer.name = "Background Fill";
+doc.selection.selectAll();
+doc.selection.fill(cmykColor);
+doc.selection.deselect();
+
+// Move the new layer to the bottom
+artLayer.move(doc.artLayers[doc.artLayers.length - 1], ElementPlacement.PLACEAFTER);
+doc.flatten();
             
                 // Save the document as a JPEG file with the specified options
                 var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
