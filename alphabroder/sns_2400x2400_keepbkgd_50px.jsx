@@ -153,14 +153,14 @@ doc.resizeImage(fw+"px", fh + "px");
 doc.resizeImage(undefined,undefined,300,ResampleMethod.NONE);
                 // Save the document as a JPEG file with the specified options
                 var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
-                var exportOptions = new ExportOptionsSaveForWeb();
+               /* var exportOptions = new ExportOptionsSaveForWeb();
                 exportOptions.format = SaveDocumentType.PNG;
                 exportOptions.PNG8 = false; // Set to true for PNG-8, false for PNG-24
                 exportOptions.transparency = true;
                 exportOptions.interlaced = false;
                 exportOptions.quality = 100;
-                app.activeDocument.exportDocument(nf, ExportType.SAVEFORWEB, exportOptions);
-                
+                app.activeDocument.exportDocument(nf, ExportType.SAVEFORWEB, exportOptions);*/
+                doc.saveAs(nf, new PNGSaveOptions(), true, Extension.LOWERCASE)
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
             f.remove();
     
