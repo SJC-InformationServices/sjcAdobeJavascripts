@@ -135,7 +135,7 @@ function snsPngBkgrd2400(log) {
             ]);
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
-            doc.resizeImage(fw+"px", fh + "px");
+            doc.resizeImage(fw+"px", fh + "px",300,ResampleMethod.NONE);
             
             
                 // Save the document as a JPEG file with the specified options
