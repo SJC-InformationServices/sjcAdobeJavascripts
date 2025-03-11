@@ -45,6 +45,12 @@ function snsPngBkgrd2400(log) {
         dime.cropHeight = dime.cropEndY - dime.cropY;
         return dime;
     }
+    var tiffSaveOptions = new TiffSaveOptions();
+    tiffSaveOptions.embedColorProfile = true; // Embed color profile
+    tiffSaveOptions.alphaChannels = true; // Preserve alpha channels
+    tiffSaveOptions.layers = true; // Preserve layers
+    tiffSaveOptions.imageCompression = TIFFEncoding.NONE; // No compression
+
     var originalBGColor = app.backgroundColor;
     var grey = " 4c 3m 3y";
     var cmykColor = new SolidColor();
@@ -147,10 +153,12 @@ doc.selection.deselect();
 
 // Move the new layer to the bottom
 artLayer.move(doc.artLayers[doc.artLayers.length - 1], ElementPlacement.PLACEAFTER);*/
+var nft = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".tif");
+doc.saveAs(nft, tiffSaveOptions, true, Extension.LOWERCASE)
 doc.flatten();
             
-doc.resizeImage(fw+"px", fh + "px");
-doc.resizeImage(undefined,undefined,300,ResampleMethod.NONE);
+//doc.resizeImage(fw+"px", fh + "px");
+//doc.resizeImage(undefined,undefined,300,ResampleMethod.NONE);
                 // Save the document as a JPEG file with the specified options
                 var nf = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".png");
                /* var exportOptions = new ExportOptionsSaveForWeb();
