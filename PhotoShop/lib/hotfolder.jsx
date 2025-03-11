@@ -211,7 +211,7 @@ function hotFolder(properties) {
             }
             if(this.dpi==72)
             {
-                doc.resizeImage(null,null,72);
+                doc.resizeImage(null,null,72,ResampleMethod.NONE);
             }
             var padding = 35;
             if (doc.width > doc.height) {
@@ -229,8 +229,9 @@ function hotFolder(properties) {
             }
             var w = parseFloat(doc.width);
             var h = parseFloat(doc.height);
-            var getDim = getCropDimensions();
-            alert(getDim.join(", "));
+            ///alert('232');
+            var getDim = this.getCropDimensions();
+            
             var ratio = Math.min(parseFloat(this.width) / getDim.cropWidth, parseFloat(this.height) / getDim.cropHeight);
             if (getDim.cropWidth > getDim.cropHeight) {
                 //log.writeln("Resize BY: Width");
