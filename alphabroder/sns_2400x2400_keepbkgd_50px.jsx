@@ -133,12 +133,33 @@ function snsPngBkgrd2400(log) {
                 var newC = [newY, newEndY, offSet, newX, newEndX];
             }
 
-            doc.crop([
+            /*doc.crop([
                 newX,
                 newY,
                 newEndX,
                 newEndY
-            ]);
+            ]);*/
+            try {
+                var path = app.activeDocument.pathItems.getByName(this.clippingPath.Value);
+                path.makeSelection(1, 1, SelectionType.Replace);
+                doc.crop(doc.selection.bounds);
+                path.makeSelection(1,1, SelectionType.Replace);
+                doc.selection.invert();
+                doc.selection.clear();
+            }catch(e){
+                for(var y=0;y<app.activeDocument.pathItems.length;y++)
+                {
+                    var p=app.activeDocument.pathItems[y];
+                    if(p.name == "Path 1")
+                    {
+                    p.makeSelection(1, 1, SelectionType.REPLACE);
+                    doc.crop(doc.selection.bounds);
+                    p.makeSelection(1,1,SelectionType.REPLACE);
+                    doc.selection.invert();
+                    doc.selection.clear();
+                    }
+                }
+            }
             log.writeln("Height: " + doc.height);
             log.writeln("Width: " + doc.width);
             
