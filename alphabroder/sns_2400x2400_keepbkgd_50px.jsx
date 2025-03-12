@@ -153,8 +153,8 @@ doc.selection.deselect();
 
 // Move the new layer to the bottom
 artLayer.move(doc.artLayers[doc.artLayers.length - 1], ElementPlacement.PLACEAFTER);*/
-var nft = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".tif");
-doc.saveAs(nft, tiffSaveOptions, true, Extension.LOWERCASE)
+//var nft = File(outFolder + "\\" + app.activeDocument.name.split(".")[0] + ".tif");
+//doc.saveAs(nft, tiffSaveOptions, true, Extension.LOWERCASE)
 doc.flatten();
             
 //doc.resizeImage(fw+"px", fh + "px");
