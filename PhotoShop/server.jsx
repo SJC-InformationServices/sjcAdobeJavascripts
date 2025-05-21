@@ -12,6 +12,8 @@ app.displayDialogs = DialogModes.NO;
 
 #include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\sns_2400x2400_keepbkgd_50px.jsx";
 
+#include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\WM_3000x3000_300dpi_50px_MagicWand.jsx";
+
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
@@ -80,7 +82,15 @@ try {
             tmpF.writeln("alphabroderJPGBkgrd800: ");
             tmpF.writeln(e.message);
      }    
-             
+      
+      try 
+     {
+        WM_3000x3000_300dpi_50px_MagicWand(tmpF);
+    }
+         catch(e) {
+            tmpF.writeln("alphabroderJPGBkgrd800: ");
+            tmpF.writeln(e.message);
+     }
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
     for(var i = 0;i<source.length;i++)
