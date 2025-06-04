@@ -93,6 +93,17 @@ try {
             tmpF.writeln("alphabroderJPGBkgrd800: ");
             tmpF.writeln(e.message);
      }
+try 
+     {
+        walmart_sizeAs5px(tmpF);
+    }
+         catch(e) {
+            tmpF.writeln("walmart_sizeAs5px ");
+            tmpF.writeln(e.message);
+     }
+
+
+
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
     tmpF.writeln("Total Folders:" + source.length);
     for(var i = 0;i<source.length;i++)
