@@ -46,8 +46,8 @@ function removeLayers(layerSet) {
         return dime;
     }
 
-    var inFolder = Folder("\\\\10.136.209.199\\Walmart Assets\\HotFolders\\IN");
-    var outFolder = Folder("\\\\10.136.209.199\\Walmart Assets\\HotFolders\\Out");
+    var inFolder = Folder("\\\\10.136.209.199\\Walmart Assets\\HotFolders\\WalmartCrop20px\\IN");
+    var outFolder = Folder("\\\\10.136.209.199\\Walmart Assets\\HotFolders\\WalmartCrop20px\\Out");
 
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
     log.writeln("Total Files: " + files.length);
