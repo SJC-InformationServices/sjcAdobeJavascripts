@@ -50,13 +50,21 @@ function removeLayers(layerSet) {
     var outFolder = Folder("\\\\10.136.209.199\\Walmart Assets\\HotFolders\\WalmartCrop20px\\Out");
 
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
+
+
+var allFiles = inFolder.getFiles(function(f) {
+    return f instanceof File && f.name.match(/\.(psd|tif|jpg)$/i) && !f.name.startsWith(".");
+});
+
+
     log.writeln("Total Files: " + files.length);
-    for (var i = 0; i < files.length; i++) {
+    for (var i = 0; i < allFiles.length; i++) {
 
         f = files[i];
         log.writeln(i +":"+f.fullName);
            
-                app.open(f);
+                try {
+                    app.open(f);
                var doc = app.activeDocument;
                 
             var fw = parseFloat(doc.width);
@@ -90,15 +98,13 @@ function removeLayers(layerSet) {
                 newY,
                 newEndX,
                 newEndY
-            ]);
-
-            
+            ]);           
             
             
             var nf = File(outFolder + "\\" + app.activeDocument.name);
             app.activeDocument.close(SaveOptions.SAVECHANGES);   
             f.copy(nf);            
-            /*f.remove();*/
+            /*f.remove();*/}catch (e) {log.writeln("Error" + e.message)}
     
     }
     var dcurrent = new Date();
