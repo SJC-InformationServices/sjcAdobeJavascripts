@@ -51,14 +51,9 @@ function removeLayers(layerSet) {
 
     var files = inFolder.getFiles(/\.(psd|tif|jpg|)$/i);
 
-
-var allFiles = inFolder.getFiles(function(f) {
-    return f instanceof File && f.name.match(/\.(psd|tif|jpg)$/i) && !f.name.startsWith(".");
-});
-
-
+    
     log.writeln("Total Files: " + files.length);
-    for (var i = 0; i < allFiles.length; i++) {
+    for (var i = 0; i < files.length; i++) {
 
         f = files[i];
         log.writeln(i +":"+f.fullName);
@@ -104,7 +99,7 @@ var allFiles = inFolder.getFiles(function(f) {
             var nf = File(outFolder + "\\" + app.activeDocument.name);
             app.activeDocument.close(SaveOptions.SAVECHANGES);   
             f.copy(nf);            
-            /*f.remove();*/}catch (e) {log.writeln("Error" + e.message)}
+            /*f.remove();*/}catch (e) {log.writeln("Error" + e.message);}
     
     }
     var dcurrent = new Date();
