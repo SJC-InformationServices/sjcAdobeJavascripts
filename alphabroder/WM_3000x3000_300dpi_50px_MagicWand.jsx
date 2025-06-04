@@ -192,7 +192,7 @@ doc.flatten();
         jpgSave.quality = 12;
                 doc.saveAs(nf, jpgSave, true, Extension.LOWERCASE)
             app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-            //f.remove();
+            f.remove();
     
     }
     var dcurrent = new Date();

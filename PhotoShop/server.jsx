@@ -14,6 +14,8 @@ app.displayDialogs = DialogModes.NO;
 
 #include "E:\\repo\\sjcAdobeJavascripts\\alphabroder\\WM_3000x3000_300dpi_50px_MagicWand.jsx";
 
+#include "E:\\repo\\sjcAdobeJavascripts\\walmart\\walmart_sizeAs5px.jsx";
+
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
