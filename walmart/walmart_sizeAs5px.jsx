@@ -99,7 +99,10 @@ function removeLayers(layerSet) {
             var nf = File(outFolder + "\\" + app.activeDocument.name);
             app.activeDocument.close(SaveOptions.SAVECHANGES);   
             f.copy(nf);            
-            /*f.remove();*/}catch (e) {log.writeln("Error" + e.message);}
+            f.remove();}catch (e) {
+                log.writeln("Error" + e.message);
+                app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+            }
     
     }
     var dcurrent = new Date();
