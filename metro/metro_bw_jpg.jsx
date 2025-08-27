@@ -21,13 +21,30 @@ function metro_bw_jpg(log) {
 
             // Convert to grayscale
             doc.changeMode(ChangeMode.GRAYSCALE);
-            
-            
-            
-            var nf = File(outFolder + "\\" + doc.name);            
-            doc.close(SaveOptions.SAVECHANGES);
-            f.copy(nf);
+                        
+            var ext = f.name.split('.').pop().toLowerCase();
+            var saveFile = File(outFolder + "/" + doc.name);
+
+            if (ext === "jpg" || ext === "jpeg") {
+                var saveOps = new JPEGSaveOptions();
+                saveOps.quality = 12;
+                
+            } else if (ext === "tif" || ext === "tiff") {
+                var saveOps = new TiffSaveOptions();
+                saveOps.imageCompression = TIFFEncoding.NONE;
+                
+            } else if (ext === "psd") {
+                var saveOps = new PhotoshopSaveOptions();
+                
+            } else {
+                log.writeln("Unsupported format: " + ext);
+                doc.close(SaveOptions.DONOTSAVECHANGES);
+                continue;
+            }
+            doc.saveAs(saveFile, saveOps, true);
+            doc.close(SaveOptions.DONOTSAVECHANGES);
             f.remove();
+
         } catch (e) {
             log.writeln("Error: " + e.message);
             if (app.documents.length > 0) {
