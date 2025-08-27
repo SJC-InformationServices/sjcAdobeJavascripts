@@ -16,6 +16,8 @@ app.displayDialogs = DialogModes.NO;
 
 #include "E:\\repo\\sjcAdobeJavascripts\\walmart\\walmart_sizeAs5px.jsx";
 
+#include "E:\\repo\\sjcAdobeJavascripts\\metro\\metro_bw_jpg.jsx";
+
 var current = new Date();
 var cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 var cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
@@ -101,7 +103,12 @@ try
             tmpF.writeln("walmart_sizeAs5px ");
             tmpF.writeln(e.message);
      }
-
+try {
+    metro_bw_jpg(tmpF);
+} catch (e) {
+    tmpF.writeln("Metro BW ");
+            tmpF.writeln(e.message);
+}
 
 
     var source = $.evalFile(File($.getenv('sjcHotFolders')));
