@@ -21,7 +21,7 @@ function metro_bw_jpg(log) {
 
             // Convert to grayscale
             doc.changeMode(ChangeMode.GRAYSCALE);
-
+            alert(doc.name);
             doc.save();
             doc.close(SaveOptions.SAVECHANGES);
             var nf = File(outFolder + "\\" + doc.name);            
