@@ -21,12 +21,13 @@ function metro_bw_jpg(log) {
 
             // Convert to grayscale
             doc.changeMode(ChangeMode.GRAYSCALE);
-            alert(doc.name);
-            doc.save();
-            doc.close(SaveOptions.SAVECHANGES);
+            
+            
+            
             var nf = File(outFolder + "\\" + doc.name);            
+            doc.close(SaveOptions.SAVECHANGES);
             f.copy(nf);
-            //f.remove();
+            f.remove();
         } catch (e) {
             log.writeln("Error: " + e.message);
             if (app.documents.length > 0) {
