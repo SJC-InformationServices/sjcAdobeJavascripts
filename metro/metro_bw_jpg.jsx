@@ -5,10 +5,10 @@ function metro_bw_jpg(log) {
     var dateTime = cDate + ' ' + cTime;
     log.writeln("metro bw " + dateTime);
 
-    var inFolder = Folder("\\\\10.3.0.39\\Metro_Ontario\\hotfolder\\In");
-    var outFolder = Folder("\\\\10.3.0.39\\Metro_Ontario\\hotfolder\\Out");
+    var inFolder = Folder("\\\\10.3.0.39\\Metro_Ontario\\hotfolder\\Metro_BW\\In");
+    var outFolder = Folder("\\\\10.3.0.39\\Metro_Ontario\\hotfolder\\Metro_BW\\Out");
 
-    var files = inFolder.getFiles(/\.(psd|tif|jpg)$/i);
+    var files = inFolder.getFiles(/\.(psd|tif|jpg|jpeg|tiff|eps)$/i);
 
     log.writeln("Total Files: " + files.length);
     for (var i = 0; i < files.length; i++) {
